@@ -11,8 +11,9 @@ export class tv extends Actor {
 
     onInitialize(engine) {
         this.graphics.use(Resources.tv.toSprite())
+        this.scale = new Vector(0.3, 0.3)
         //   this.graphics.flipHorizontal = true
-        this.pos = new Vector(700, 560)
+        this.pos = new Vector(700, 520)
         this.actions.repeat((repeatCtx) => {
             repeatCtx.moveBy(300, 0, 100)
             repeatCtx.moveBy(-300, 0, 100)
