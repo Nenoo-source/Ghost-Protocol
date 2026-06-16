@@ -1,5 +1,5 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, randomInRange } from "excalibur"
-import { Resources } from ".../resources.js"
+import { Resources } from  "../../resources"
 
 export class player1 extends Actor {
 
