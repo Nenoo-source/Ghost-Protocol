@@ -11,9 +11,9 @@ export class player1 extends Actor {
 
     }
     onInitialize(engine) {
+        this.scale = new Vector(0.2, 0.2)
         this.graphics.use(Resources.player1.toSprite())
-        this.pos = new Vector(100, 560)
-        this.scale = new Vector(1, 1)
+        this.pos = new Vector(100, 540)
     }
 
 
@@ -36,7 +36,7 @@ export class player1 extends Actor {
 
 
         if (xspeed !== 0) {
-            this.graphics.flipHorizontal = xspeed > 0
+            this.graphics.flipHorizontal = xspeed < 0
         }
     }
 }
