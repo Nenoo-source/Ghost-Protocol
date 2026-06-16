@@ -1,19 +1,19 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, randomInRange } from "excalibur"
-import { Resources } from  "../../resources"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode } from "excalibur"
+import { Resources } from "../../resources"
 
 export class player1 extends Actor {
 
     constructor() {
         super({
-            width: Resources.Hook.width,
-            height: Resources.Hook.height
+            width: Resources.player1.width,
+            height: Resources.player1.height
         })
 
     }
     onInitialize(engine) {
         this.graphics.use(Resources.player1.toSprite())
-        this.pos = new Vector(640, -200)
-        this.scale = new Vector(0.5, 0.5)
+        this.pos = new Vector(100, -200)
+        this.scale = new Vector(1, 1)
     }
 
 
@@ -22,18 +22,13 @@ export class player1 extends Actor {
         let xspeed = 0
         let yspeed = 0
 
-        if (engine.input.keyboard.isHeld(this.controls.right)) {
+        if (engine.input.keyboard.isHeld(this.D)) {
             xspeed += this.speed
         }
-        if (engine.input.keyboard.isHeld(this.controls.left)) {
+        if (engine.input.keyboard.isHeld(this.A)) {
             xspeed -= this.speed
         }
-        if (engine.input.keyboard.isHeld(this.controls.up)) {
-            yspeed -= this.speed
-        }
-        if (engine.input.keyboard.isHeld(this.controls.down)) {
-            yspeed += this.speed
-        }
+
         console.log(xspeed, yspeed)
         this.vel = new Vector(xspeed, yspeed)
 
