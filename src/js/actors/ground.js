@@ -8,7 +8,7 @@ export class ground extends Actor {
             width: 5000,
             height: 20
         })
-        this.pos = new Vector(0, 650)
+        this.pos = new Vector(0, 600)
     }
 
     onInitialize(engine) {
