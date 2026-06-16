@@ -12,7 +12,7 @@ export class player1 extends Actor {
     }
     onInitialize(engine) {
         this.graphics.use(Resources.player1.toSprite())
-        this.pos = new Vector(100, -200)
+        this.pos = new Vector(100, 200)
         this.scale = new Vector(1, 1)
     }
 
@@ -21,11 +21,12 @@ export class player1 extends Actor {
 
         let xspeed = 0
         let yspeed = 0
+        this.speed = 100
 
-        if (engine.input.keyboard.isHeld(this.D)) {
+        if (engine.input.keyboard.isHeld(Keys.D)) {
             xspeed += this.speed
         }
-        if (engine.input.keyboard.isHeld(this.A)) {
+        if (engine.input.keyboard.isHeld(Keys.A)) {
             xspeed -= this.speed
         }
 
@@ -35,7 +36,7 @@ export class player1 extends Actor {
 
 
         if (xspeed !== 0) {
-            this.graphics.flipHorizontal = xspeed < 0
+            this.graphics.flipHorizontal = xspeed > 0
         }
     }
 }
