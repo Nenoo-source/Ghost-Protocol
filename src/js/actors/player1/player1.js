@@ -22,6 +22,7 @@ export class player1 extends Actor {
         let xspeed = 0
         let yspeed = 0
         this.speed = 300
+        this.speed = 300
 
         if (engine.input.keyboard.isHeld(Keys.D)) {
             xspeed += this.speed
