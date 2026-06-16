@@ -2,6 +2,7 @@ import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } f
 import { Resources } from "../resources.js"
 import { player1 } from "../actors/player1/player1.js"
 import { tv } from "../actors/enemyone.js"
+import { ground } from "../actors/ground.js"
 
 
 export class LevelOne extends Scene {
@@ -23,6 +24,9 @@ export class LevelOne extends Scene {
 
         const t = new tv()
         this.add(t)
+
+        const g = new ground()
+        this.add(g)
     }
 }
 
