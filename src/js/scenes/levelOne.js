@@ -15,5 +15,11 @@ export class LevelOne extends Scene {
         background.graphics.use(Resources.Background.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
+
+
+        const p1 = new player1()
+        this.add(p1)
     }
 }
+
+
