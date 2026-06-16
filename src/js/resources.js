@@ -3,8 +3,9 @@ import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 // voeg hier jouw eigen resources toe
 const Resources = {
     Background: new ImageSource('images/background.png'),
-    player1: new ImageSource('images/fish.png'),
-    player2: new ImageSource('images/public/images/defensePlayer.png')
+    player1: new ImageSource('images/attacking_player.png'),
+    tv: new ImageSource('images/tvenemy.png'),
+    player2: new ImageSource('images/defensePlayer.png')
 }
 
 
