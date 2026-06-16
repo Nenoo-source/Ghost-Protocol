@@ -12,7 +12,7 @@ export class player1 extends Actor {
     }
     onInitialize(engine) {
         this.graphics.use(Resources.player1.toSprite())
-        this.pos = new Vector(100, 200)
+        this.pos = new Vector(100, 560)
         this.scale = new Vector(1, 1)
     }
 
@@ -21,7 +21,7 @@ export class player1 extends Actor {
 
         let xspeed = 0
         let yspeed = 0
-        this.speed = 100
+        this.speed = 300
 
         if (engine.input.keyboard.isHeld(Keys.D)) {
             xspeed += this.speed
