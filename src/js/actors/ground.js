@@ -1,5 +1,5 @@
 import { CollisionType, Actor, Vector } from 'excalibur'
-import { Resources } from './resources.js'
+import { Resources } from '../resources.js'
 
 export class ground extends Actor {
 
@@ -8,7 +8,7 @@ export class ground extends Actor {
             width: 1280,
             height: 20
         })
-        this.pos = new Vector(0, 560)
+        this.pos = new Vector(0, 650)
     }
 
     onInitialize(engine) {

@@ -1,6 +1,6 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Resources } from "../../resources"
-import { ground } from './ground.js'
+import { ground } from '../ground.js'
 
 export class player1 extends Actor {
 
@@ -23,7 +23,7 @@ export class player1 extends Actor {
     }
 
 
-    onPreUpdate(engine) {
+    onPreUpdate(engine, delta) {
 
         let xspeed = 0
         let yspeed = 0
