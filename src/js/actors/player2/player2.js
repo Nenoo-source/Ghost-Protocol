@@ -15,7 +15,7 @@ export class player2 extends Actor {
     onInitialize(engine) {
         this.scale = new Vector(0.2, 0.2)
         this.graphics.use(Resources.player2.toSprite())
-        this.pos = new Vector(100, 540)
+        this.pos = new Vector(180, 540)
 
         //player zwaartekracht
         this.body.useGravity = true
