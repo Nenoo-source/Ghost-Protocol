@@ -5,7 +5,7 @@ export class ground extends Actor {
 
     constructor(x, y) {
         super({
-            width: 1280,
+            width: 5000,
             height: 20
         })
         this.pos = new Vector(0, 650)
