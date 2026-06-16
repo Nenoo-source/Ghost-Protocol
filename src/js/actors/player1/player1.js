@@ -25,25 +25,33 @@ export class player1 extends Actor {
 
     onPreUpdate(engine, delta) {
 
-        let xspeed = 0
-        let yspeed = 0
-        this.speed = 300
-
-        if (engine.input.keyboard.wasPressed(Keys.Space)) {
+        if (engine.input.keyboard.wasPressed(Keys.W)) {
+            //  if (this.vel.y < 1 && this.vel.y > -1) {
             if (this.grounded) {
-                this.body.applyLinearImpulse(new Vector(0, -750 * delta))
+                this.body.applyLinearImpulse(new Vector(0, -350 * delta))
             }
+            // }
         }
 
-        if (engine.input.keyboard.isHeld(Keys.D)) {
-            xspeed += this.speed
-        }
+        let xspeed = 0
+
         if (engine.input.keyboard.isHeld(Keys.A)) {
-            xspeed -= this.speed
+            // FORCE
+            this.body.applyLinearImpulse(new Vector(-15 * delta, 0))
+            // KINEMATIC: links en rechts lopen met velocity
+            this.vel = new Vector(-300, this.vel.y)
+            xspeed = -300
+            this.graphics.flipHorizontal = true
         }
-
-        console.log(xspeed, yspeed)
-        this.vel = new Vector(xspeed, yspeed)
+        if (engine.input.keyboard.isHeld(Keys.D)) {
+            // FORCE
+            this.body.applyLinearImpulse(new Vector(15 * delta, 0))
+            // KINEMATIC: links en rechts lopen met velocity
+            this.vel = new Vector(300, this.vel.y)
+            xspeed = 300
+            this.graphics.flipHorizontal = false
+        }
+        this.vel = new Vector(xspeed, this.vel.y)
 
 
 
