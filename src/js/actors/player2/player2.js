@@ -1,62 +1,42 @@
-import { Actor, Keys, Vector } from "excalibur"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode } from "excalibur"
 import { Resources } from "../../resources"
 
-export class Player2 extends Actor {
-    #facingLeft = false
-    #isMovingHorizontally = false
+export class player2 extends Actor {
 
     constructor() {
         super({
             width: Resources.player2.width,
             height: Resources.player2.height
         })
-    }
 
+    }
     onInitialize(engine) {
+        this.scale = new Vector(0.2, 0.2)
         this.graphics.use(Resources.player2.toSprite())
-        this.pos = new Vector(100, 200)
-        this.scale = new Vector(1, 1)
+        this.pos = new Vector(100, 540)
     }
 
-    onPreUpdate(engine, dt) {
-        this.#handleInput(engine, dt / 1000)
-    }
 
-    #handleInput(engine, dt) {
-        const kb = engine.input.keyboard
-        const speed = 300
+    onPreUpdate(engine) {
 
-        if (kb.isHeld(Keys.J)) {
-            this.pos.x -= speed * dt
-            this.#facingLeft = true
-            this.#isMovingHorizontally = true
-        } else if (kb.isHeld(Keys.L)) {
-            this.pos.x += speed * dt
-            this.#facingLeft = false
-            this.#isMovingHorizontally = true
-        } else {
-            this.#isMovingHorizontally = false
+        let xspeed = 0
+        let yspeed = 0
+        this.speed = 300
+
+        if (engine.input.keyboard.isHeld(Keys.L)) {
+            xspeed += this.speed
+        }
+        if (engine.input.keyboard.isHeld(Keys.J)) {
+            xspeed -= this.speed
         }
 
-        this.graphics.flipHorizontal = this.#facingLeft
+        console.log(xspeed, yspeed)
+        this.vel = new Vector(xspeed, yspeed)
 
-        if (this.pos.x < 40) this.pos.x = 40
-        if (this.pos.x > 1240) this.pos.x = 1240
 
-        if (kb.wasPressed(Keys.I)) {
-            this.jump()
+
+        if (xspeed !== 0) {
+            this.graphics.flipHorizontal = xspeed < 0
         }
-
-        if (kb.isHeld(Keys.K)) {
-            this.slide()
-        }
-    }
-
-    jump() {
-        console.log("Player2 jumps")
-    }
-
-    slide() {
-        console.log("Player2 slides")
     }
 }

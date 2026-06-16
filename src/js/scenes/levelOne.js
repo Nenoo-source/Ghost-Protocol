@@ -3,6 +3,7 @@ import { Resources } from "../resources.js"
 import { player1 } from "../actors/player1/player1.js"
 import { tv } from "../actors/enemyone.js"
 import { ground } from "../actors/ground.js"
+import { player2 } from "../actors/player2/player2.js"
 
 
 export class LevelOne extends Scene {
@@ -21,6 +22,9 @@ export class LevelOne extends Scene {
 
         const p1 = new player1()
         this.add(p1)
+
+        const p2= new player2()
+        this.add(p2)
 
         const t = new tv()
         this.add(t)
