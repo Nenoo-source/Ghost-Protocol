@@ -31,7 +31,15 @@ export class Cookie extends Actor {
     }
 
     onPostUpdate(engine, delta) {
+        super.onPostUpdate(engine, delta)
         this.lifetime += delta
+        this.rotation -= 0.05
+        if (Math.random() < 0.1) {
+            this.graphics.opacity = 0.4 + Math.random() * 0.6
+        } else {
+            this.graphics.opacity = 1
+        }
+
 
         if (this.lifetime >= 4000) {
             this.kill()
