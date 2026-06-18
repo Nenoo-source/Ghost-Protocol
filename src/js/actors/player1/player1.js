@@ -20,16 +20,23 @@ export class Player1 extends Player {
         this.scale = new Vector(0.15, 0.15)
         this.graphics.use(Resources.player1.toSprite())
         this.pos = new Vector(100, 540)
-    } 
 
-    onPreUpdate(engine, delta) {
+        this.side = 1
+    }
+
+    onPostUpdate(engine, delta) {
         if (engine.input.keyboard.wasPressed(Keys.Digit1)) {
             this.attackAbility()
         }
     }
 
     attackAbility() {
-        let shot = new ThreatScanner(this.pos.x, this.pos.y)
+        if (this.graphics.flipHorizontal) {
+            this.side = -1
+        } else {
+            this.side = 1
+        }
+        let shot = new ThreatScanner(this.pos.x, this.pos.y, this.side)
         this.scene.add(shot)
     }
 }
