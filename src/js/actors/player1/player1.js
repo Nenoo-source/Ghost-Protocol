@@ -17,7 +17,7 @@ export class Player1 extends Player {
     onInitialize(engine) {
         super.onInitialize(engine)
 
-        this.scale = new Vector(0.15, 0.15)
+        this.scale = new Vector(0.1, 0.1)
         this.graphics.use(Resources.player1.toSprite())
         this.pos = new Vector(100, 540)
 

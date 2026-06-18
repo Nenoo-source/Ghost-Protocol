@@ -19,8 +19,8 @@ export class Tv extends Actor {
         this._shootTimer = 0
 
         this.graphics.use(Resources.tv.toSprite())
-        this.scale = new Vector(0.25, 0.25)
-        this.pos = new Vector(700, 540)
+        this.scale = new Vector(0.16, 0.16)
+        this.pos = new Vector(700, 560)
         //zwaartekracht
         this.body.useGravity = true
         this.body.collisionType = CollisionType.Active
