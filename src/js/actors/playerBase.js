@@ -53,13 +53,13 @@ export class Player extends Actor {
     }
 
     onCollisionStart(event, other) {
-        if (other.owner instanceof Ground || Platform) {
+        if (other.owner instanceof Ground || other.owner instanceof Platform) {
             this.grounded = true
         }
     }
 
     onCollisionEnd(event, other) {
-        if (other.owner instanceof Ground || Platform) {
+        if (other.owner instanceof Ground || other.owner instanceof Platform) {
             this.grounded = false
         }
     }
