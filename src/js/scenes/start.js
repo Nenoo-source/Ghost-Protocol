@@ -9,10 +9,13 @@ export class StartScene extends Scene {
             width: engine.drawWidth,
             height: engine.drawHeight,
             z: -1,
+
         })
         background.graphics.use(Resources.start.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
+        Resources.Menumusic.loop = true;
+        Resources.Menumusic.play()
 
         // title
         const title = new Actor({

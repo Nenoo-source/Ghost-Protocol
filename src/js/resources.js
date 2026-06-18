@@ -12,6 +12,7 @@ const Resources = {
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),
     Highdiffmusic2: new Sound('sounds/Highdifficulty2.mp3'),
+    Menumusic: new Sound('sounds/Menumusic.mp3'),
     Lasergun1: new Sound('sounds/Lasergun1.mp3'),
     Lasergun2: new Sound('sounds/Lasergun2.m4a'),
     Gameover: new Sound('sounds/Gameover.mp3'),
