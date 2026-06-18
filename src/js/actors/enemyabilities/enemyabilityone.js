@@ -40,6 +40,7 @@ export class Cookie extends Actor {
 
             other.owner.kill()
             this.kill()
+            Resources.Damagesound.play()
             return
         }
 
@@ -47,6 +48,7 @@ export class Cookie extends Actor {
         if (other.owner instanceof Player1) {
             other.owner.kill()
             this.kill()
+            Resources.Damagesound.play()
         }
     }
 

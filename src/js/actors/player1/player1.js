@@ -27,6 +27,7 @@ export class Player1 extends Player {
     onPostUpdate(engine, delta) {
         if (engine.input.keyboard.wasPressed(Keys.Digit1)) {
             this.attackAbility()
+
         }
     }
 
@@ -38,5 +39,6 @@ export class Player1 extends Player {
         }
         let shot = new ThreatScanner(this.pos.x, this.pos.y, this.side)
         this.scene.add(shot)
+        Resources.Lasergun1.play()
     }
 }
