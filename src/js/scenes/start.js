@@ -52,4 +52,8 @@ export class StartScene extends Scene {
             })
         }
     }
+
+    onDeactivate(engine) {
+        Resources.Menumusic.stop()
+    }
 }
