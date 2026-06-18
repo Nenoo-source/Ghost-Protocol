@@ -28,12 +28,10 @@ export class LevelOne extends Scene {
 
         const p1 = new Player1("player1")
         this.add(p1)
-
+        
         const p2 = new Player2("player2")
+        p2.other = p1
         this.add(p2)
-
-        const t = new Tv()
-        this.add(t)
 
         const g = new Ground()
         this.add(g)
