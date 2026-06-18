@@ -1,7 +1,7 @@
 import { CollisionType, Actor, Vector } from 'excalibur'
 import { Resources } from '../resources.js'
 
-export class ground extends Actor {
+export class Ground extends Actor {
 
     constructor(x, y) {
         super({

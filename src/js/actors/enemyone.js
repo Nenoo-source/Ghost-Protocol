@@ -1,9 +1,9 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Resources } from '../resources.js'
-import { player1 } from "./player1/player1.js"
-import { player2 } from "./player2/player2.js"
+import { Player1 } from "./player1/player1.js"
+import { Player2 } from "./player2/player2.js"
 
-export class tv extends Actor {
+export class Tv extends Actor {
     constructor() {
         super({
             width: Resources.tv.width,
@@ -25,9 +25,8 @@ export class tv extends Actor {
         },)
     }
     onCollisionStart(event, other) {
-        if (other.owner instanceof player1 || other.owner instanceof player2) {
+        if (other.owner instanceof Player1 || other.owner instanceof Player2) {
             other.owner.kill()
         }
     }
-
 }
