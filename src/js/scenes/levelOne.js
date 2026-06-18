@@ -18,12 +18,14 @@ export class LevelOne extends Scene {
         background.graphics.use(Resources.Background.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
+        Resources.Ezdiffmusic1.loop = true;
+        Resources.Ezdiffmusic1.play()
 
 
         const p1 = new Player1("player1")
         this.add(p1)
 
-        const p2= new player2()
+        const p2 = new Player2("player2")
         this.add(p2)
 
         const t = new Tv()
