@@ -20,7 +20,8 @@ const Resources = {
     Teleport: new Sound('sounds/Shielddeflect.mp3'),
     Ultshield: new Sound('sounds/Ultshield.mp3'),
     Levelcomplete: new Sound('sounds/Levelcomplete.mp3'),
-    Projectile: new ImageSource('images/projectile.png')
+    Projectile: new ImageSource('images/projectile.png'),
+    platform: new ImageSource('images/platform2.png')
 }
 
 
