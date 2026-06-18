@@ -7,11 +7,12 @@ const Resources = {
     player1: new ImageSource('images/attackPlayer.png'),
     tv: new ImageSource('images/tvenemy.png'),
     player2: new ImageSource('images/defensePlayer.png'),
-    cookie: new ImageSource('images/cookie.png'),
+    cookie: new ImageSource('images/cookies.png'),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),
     Highdiffmusic2: new Sound('sounds/Highdifficulty2.mp3'),
+    Menumusic: new Sound('sounds/Menumusic.mp3'),
     Lasergun1: new Sound('sounds/Lasergun1.mp3'),
     Lasergun2: new Sound('sounds/Lasergun2.m4a'),
     Gameover: new Sound('sounds/Gameover.mp3'),
@@ -19,6 +20,7 @@ const Resources = {
     Teleport: new Sound('sounds/Shielddeflect.mp3'),
     Ultshield: new Sound('sounds/Ultshield.mp3'),
     Levelcomplete: new Sound('sounds/Levelcomplete.mp3'),
+    Projectile: new ImageSource('images/projectile.png')
 }
 
 
