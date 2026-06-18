@@ -1,4 +1,4 @@
-import { Actor, Vector, CollisionType } from "excalibur"
+import { Actor, Vector, CollisionType, Color } from "excalibur"
 import { Resources } from '../../resources.js'
 import { Player1 } from '../../actors/player1/player1.js'
 import { Player2 } from '../../actors/player2/player2.js'
@@ -26,29 +26,31 @@ export class Cookie extends Actor {
     }
     onCollisionStart(event, other) {
 
-    // Player2 blocks Cookie with block type 1
-    if (other.owner instanceof Player2) {
+        // Player2 blocks Cookie with block type 1
+        if (other.owner instanceof Player2) {
 
-        if (isCorrectBlock(other.owner, 1)) {
+            if (isCorrectBlock(other.owner, 1)) {
 
-            // push cookie away
-            this.vel.x *= -2
-            this.vel.y = -200
+                // push cookie away
+                this.vel.x *= -2
+                this.vel.y = -200
 
+                return
+            }
+
+            other.owner.kill()
+            this.kill()
+            Resources.Damagesound.play()
             return
         }
 
-        other.owner.kill()
-        this.kill()
-        return
+        // Player1 cannot block cookies
+        if (other.owner instanceof Player1) {
+            other.owner.kill()
+            this.kill()
+            Resources.Damagesound.play()
+        }
     }
-
-    // Player1 cannot block cookies
-    if (other.owner instanceof Player1) {
-        other.owner.kill()
-        this.kill()
-    }
-}
 
     onPostUpdate(engine, delta) {
         super.onPostUpdate(engine, delta)
@@ -60,6 +62,22 @@ export class Cookie extends Actor {
             this.graphics.opacity = 1
         }
 
+        const trail = new Actor({
+            x: this.pos.x,
+            y: this.pos.y,
+            width: 8,
+            height: 8,
+            color: Color.fromRGB(0, 200, 255) // neon blauw
+        })
+
+        trail.graphics.opacity = 0.8
+        trail.z = -0.5 // achter de cookie
+
+        // Deeltje toevoegen
+        engine.currentScene.add(trail)
+
+        // Deeltje langzaam laten verdwijnen
+        trail.actions.fade(0, 200).die()
 
         if (this.lifetime >= 4000) {
             this.kill()
