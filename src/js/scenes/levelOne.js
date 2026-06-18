@@ -40,26 +40,27 @@ export class LevelOne extends Scene {
 
         const c = new Cookie()
         this.add(c)
+
+        const pl = new Platform
+    }
+
+
+
+
+    addPlatforms(x, y) {
+        // platforms
+        let positions = [
+            { "x": 400, "y": 570 },
+            { "x": 500, "y": 400 },
+            { "x": 900, "y": 350 },
+            { "x": 1100, "y": 250 },
+            { "x": 1200, "y": 350 },
+            { "x": 1300, "y": 350 },
+            { "x": 1400, "y": 350 },
+        ]
+        for (let pos of positions) {
+            this.add(new Platform(x, y))
+        }
+
     }
 }
-
-const pl = new Platform
-    }
-addPlatforms(x, y){
-    // platforms
-    let positions = [
-        { "x": 400, "y": 570 },
-        { "x": 500, "y": 400 },
-        { "x": 900, "y": 350 },
-        { "x": 1100, "y": 250 },
-        { "x": 1200, "y": 350 },
-        { "x": 1300, "y": 350 },
-        { "x": 1400, "y": 350 },
-    ]
-    for (let pos of positions) {
-        this.add(new Platform(x, y))
-    }
-}
-    }
-
-
