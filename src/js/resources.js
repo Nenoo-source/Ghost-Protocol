@@ -21,7 +21,8 @@ const Resources = {
     Ultshield: new Sound('sounds/Ultshield.mp3'),
     Levelcomplete: new Sound('sounds/Levelcomplete.mp3'),
     Projectile: new ImageSource('images/projectile.png'),
-    platform: new ImageSource('images/platform2.png')
+    platform: new ImageSource('images/platform2.png'),
+    Damagesound: new Sound('sounds/Damage.mp3')
 }
 
 
