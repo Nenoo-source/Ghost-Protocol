@@ -25,7 +25,8 @@ const Resources = {
     Projectile: new ImageSource('images/projectile.png'),
     platform: new ImageSource('images/platform2.png'),
     Damagesound: new Sound('sounds/Damage.mp3'),
-    Superjumpsound: new Sound('sounds/Highjump.mp3')
+    Superjumpsound: new Sound('sounds/Highjump.mp3'),
+    Scansound: new Sound('sounds/Scan.mp3')
 }
 
 
