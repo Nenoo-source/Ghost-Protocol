@@ -25,17 +25,17 @@ export class LevelOne extends Scene {
 
 
 
-            //player 1
+        //player 1
         const p1 = new Player1("player1")
         this.add(p1)
-       
+
         //player 2
         const p2 = new Player2("player2")
         p2.other = p1
         this.add(p2)
 
-            // TV enemy
-        const t = new Tv() 
+        // TV enemy
+        const t = new Tv()
         this.add(t)
         // ground
         const g = new Ground()
@@ -45,14 +45,16 @@ export class LevelOne extends Scene {
         this.addPlatforms()
     }
 
-    
+
 
     addPlatforms() {
         // platforms
         let positions = [
+            { "x": 300, "y": 350 },
             { "x": 900, "y": 400 },
-            
-            
+            {"x": 500, "y": 200}
+
+
         ]
         for (let pos of positions) {
             this.add(new Platform(pos.x, pos.y))
