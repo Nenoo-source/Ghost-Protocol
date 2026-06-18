@@ -1,4 +1,4 @@
-import { CollisionType, Actor, Vector } from 'excalibur'
+import { CollisionType, Actor, Vector, Rectangle, Color } from 'excalibur'
 import { Resources } from '../resources.js'
 
 export class Ground extends Actor {
@@ -9,9 +9,11 @@ export class Ground extends Actor {
             height: 20
         })
         this.pos = new Vector(0, 600)
+        
     }
 
     onInitialize(engine) {
         this.body.collisionType = CollisionType.Fixed
+
     }
 }
