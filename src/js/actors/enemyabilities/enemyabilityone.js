@@ -34,7 +34,7 @@ export class Cookie extends Actor {
                 // push cookie away
                 this.vel.x *= -2
                 this.vel.y = -200
-
+                Resources.Shielddeflect.play()
                 return
             }
 
