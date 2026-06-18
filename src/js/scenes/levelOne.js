@@ -4,6 +4,7 @@ import { Player1 } from "../actors/player1/player1.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Tv } from "../actors/enemyone.js"
 import { Ground } from "../actors/ground.js"
+import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 
 
 export class LevelOne extends Scene {
@@ -22,6 +23,8 @@ export class LevelOne extends Scene {
         Resources.Ezdiffmusic1.play()
 
 
+
+
         const p1 = new Player1("player1")
         this.add(p1)
 
@@ -33,6 +36,9 @@ export class LevelOne extends Scene {
 
         const g = new Ground()
         this.add(g)
+
+        const c = new Cookie()
+        this.add(c)
     }
 }
 
