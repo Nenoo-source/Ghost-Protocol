@@ -46,5 +46,11 @@ export class Tv extends Actor {
             engine.currentScene.add(cookie)
             this._shootTimer = 0
         }
+
+        if (Math.random() < 0.1) {
+            this.graphics.opacity = 0.6 + Math.random() * 0.6
+        } else {
+            this.graphics.opacity = 1
+        }
     }
 }
