@@ -5,19 +5,15 @@ export class Platform extends Actor {
 
     constructor(x, y) {
         super({
-            width: 100,
-            height: 20
+            width: Resources.platform.width,
+            height: Resources.platform.height
         })
         this.pos = new Vector(x, y)
     }
 
     onInitialize(engine) {
         this.body.collisionType = CollisionType.Fixed
-        const rect = new Rectangle({
-            width: 100,
-            height: 20,
-            color: Color.Green
-        })
-        this.graphics.use(rect)
+        this.scale = new Vector(1, 1)
+        this.graphics.use(Resources.platform.toSprite())
     }
 }
