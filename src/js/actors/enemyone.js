@@ -6,6 +6,8 @@ import { Cookie } from "./enemyabilities/enemyabilityone.js"
 
 
 export class Tv extends Actor {
+    _shootTimer = 0
+
     constructor() {
         super({
             width: Resources.tv.width,
@@ -14,6 +16,8 @@ export class Tv extends Actor {
     }
 
     onInitialize(engine) {
+        this._shootTimer = 0
+
         this.graphics.use(Resources.tv.toSprite())
         this.scale = new Vector(0.25, 0.25)
         this.pos = new Vector(700, 540)
@@ -25,15 +29,21 @@ export class Tv extends Actor {
             repeatCtx.moveBy(300, 0, 100)
             repeatCtx.moveBy(-300, 0, 100)
         },)
-        //cookie schieten
-        engine.clock.schedule(() => {
-            const cookie = new Cookie(this.pos.x - 50, this.pos.y, -1)
-            engine.currentScene.add(cookie)
-        }, 2000, true) // elke 2 seconden
+
     }
     onCollisionStart(event, other) {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
             other.owner.kill()
+        }
+    }
+
+    onPostUpdate(engine, delta) {
+        this._shootTimer += delta
+
+        if (this._shootTimer >= 4000) {
+            const cookie = new Cookie(this.pos.x - 50, this.pos.y, -1)
+            engine.currentScene.add(cookie)
+            this._shootTimer = 0
         }
     }
 }
