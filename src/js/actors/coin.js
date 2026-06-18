@@ -1,5 +1,7 @@
 import { Engine, CollisionType, Actor, Color, Vector } from 'excalibur'
 import { Resources } from '../resources'
+import { Player1 } from '../actors/player1/player1'
+import { Player2 } from '../actors/player2/player2'
 
 export class Coin extends Actor {
 
@@ -17,5 +19,11 @@ export class Coin extends Actor {
             repeatCtx.moveBy(0, 10, 15)
             repeatCtx.moveBy(0, -10, 15)
         },)
+    }
+
+    onCollisionStart(event, other) {
+        if (other.owner instanceof Player1 || other.owner instanceof Player2) {
+            this.kill()
+        }
     }
 }
