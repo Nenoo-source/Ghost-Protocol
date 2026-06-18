@@ -9,6 +9,7 @@ const Resources = {
     player2: new ImageSource('images/defensePlayer.png'),
     defensiveState: new ImageSource('images/defensive_player_blocking_state.png'),
     cookie: new ImageSource('images/cookies.png'),
+    Coin: new ImageSource('images/bubble.png'),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),

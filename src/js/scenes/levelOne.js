@@ -6,6 +6,7 @@ import { Ground } from "../actors/ground.js"
 import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
+import { Coin } from "../actors/coin.js"
 
 
 export class LevelOne extends Scene {
@@ -41,6 +42,10 @@ export class LevelOne extends Scene {
         const g = new Ground()
         this.add(g)
 
+        const c = new Coin(100, 80)
+        this.add(c)
+
+
 
         this.addPlatforms()
     }
@@ -52,7 +57,7 @@ export class LevelOne extends Scene {
         let positions = [
             { "x": 300, "y": 350 },
             { "x": 900, "y": 400 },
-            {"x": 500, "y": 200}
+            { "x": 500, "y": 200 }
 
 
         ]

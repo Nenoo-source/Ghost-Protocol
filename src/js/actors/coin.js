@@ -1,5 +1,5 @@
 import { Engine, CollisionType, Actor, Color, Vector } from 'excalibur'
-import { Resources } from './resources.js'
+import { Resources } from '../resources'
 
 export class Coin extends Actor {
 
