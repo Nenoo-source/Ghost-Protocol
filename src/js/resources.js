@@ -6,7 +6,8 @@ const Resources = {
 
     player1: new ImageSource('images/attacking_player.png'),
     tv: new ImageSource('images/tvenemy.png'),
-    player2: new ImageSource('images/defensePlayer.png')
+    player2: new ImageSource('images/defensePlayer.png'),
+    platform: new ImageSource('images/platorm2.png')
 }
 
 
