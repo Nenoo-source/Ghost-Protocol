@@ -22,7 +22,7 @@ export class Cookie extends Actor {
 
     onInitialize(engine) {
         this.graphics.use(Resources.cookie.toSprite())
-        this.scale = new Vector(0.1, 0.1)
+        this.scale = new Vector(0.08, 0.08)
     }
     onCollisionStart(event, other) {
 
@@ -34,7 +34,7 @@ export class Cookie extends Actor {
                 // push cookie away
                 this.vel.x *= -2
                 this.vel.y = -200
-
+                Resources.Shielddeflect.play()
                 return
             }
 
