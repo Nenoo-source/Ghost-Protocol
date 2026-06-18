@@ -52,7 +52,8 @@ export class LevelOne extends Scene {
         let positions = [
             { "x": 300, "y": 350 },
             { "x": 900, "y": 400 },
-            {"x": 500, "y": 200}
+            { "x": 500, "y": 200 },
+            { "x": 100, "y": 100 },
 
 
         ]
