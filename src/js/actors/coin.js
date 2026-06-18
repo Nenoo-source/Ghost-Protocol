@@ -24,6 +24,7 @@ export class Coin extends Actor {
     onCollisionStart(event, other) {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
             this.kill()
+            Resources.Coincollect.play()
         }
     }
 }
