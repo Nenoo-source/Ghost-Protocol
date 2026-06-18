@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom, Side } from "excalibur"
 import { Ground } from './ground.js'
 import { Platform } from "./platform.js"
 
@@ -52,13 +52,13 @@ export class Player extends Actor {
         this.vel = new Vector(xspeed, this.vel.y)
     }
 
-    onCollisionStart(event, other) {
-        if (other.owner instanceof Ground || other.owner instanceof Platform) {
+    onCollisionStart(self, other, side, contact) {
+        if ((other.owner instanceof Ground || other.owner instanceof Platform) && side === Side.Bottom) {
             this.grounded = true
         }
     }
 
-    onCollisionEnd(event, other) {
+    onCollisionEnd(self, other) {
         if (other.owner instanceof Ground || other.owner instanceof Platform) {
             this.grounded = false
         }

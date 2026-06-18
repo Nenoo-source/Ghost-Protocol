@@ -1,5 +1,6 @@
 import { CollisionType, Actor, Vector, Rectangle, Color } from 'excalibur'
 import { Resources } from '../resources.js'
+import { Buffer } from './buffer.js'
 
 export class Platform extends Actor {
 
@@ -8,12 +9,14 @@ export class Platform extends Actor {
             width: Resources.platform.width,
             height: Resources.platform.height
         })
-        this.pos = new Vector(x, y)
+        this.posX = x
+        this.posY = y
     }
 
     onInitialize(engine) {
         this.body.collisionType = CollisionType.Fixed
         this.scale = new Vector(1, 1)
         this.graphics.use(Resources.platform.toSprite())
+        this.pos = new Vector(this.posX, this.posY)
     }
 }
