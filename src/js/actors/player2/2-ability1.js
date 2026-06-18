@@ -1,4 +1,5 @@
 import { Keys, Vector } from "excalibur"
+import { Resources } from "../../resources.js"
 
 // Ability 1: Super Jump (key 7)
 // Veel sterkere sprong dan de normale jump, alleen vanaf de grond, met cooldown.
@@ -26,6 +27,7 @@ export function updateSuperJump(player, engine, delta) {
 
     if (engine.input.keyboard.wasPressed(Keys.Digit7) || engine.input.keyboard.wasPressed(Keys.Num7)) {
         tryActivateSuperJump(player, delta)
+        
     }
 }
 
@@ -43,7 +45,7 @@ function tryActivateSuperJump(player, delta) {
     // zelfde patroon als de normale jump in playerBase.js: kracht * delta
     player.body.applyLinearImpulse(new Vector(0, -SUPER_JUMP_MULTIPLIER * delta))
     player.superJumpCooldownRemaining = SUPER_JUMP_COOLDOWN
-
+    Resources.Superjumpsound.play()
     return true
 }
 
