@@ -24,7 +24,7 @@ export class Player2 extends Player {
 
         this.scale = new Vector(0.2, 0.2)
         this.graphics.use(Resources.player2.toSprite())
-        this.pos = new Vector(100, 540)
+        this.pos = new Vector(200, 540)
 
         // abilities initialiseren
         setupSuperJump(this)
