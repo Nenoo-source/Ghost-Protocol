@@ -23,6 +23,11 @@ export class Tv extends Actor {
             repeatCtx.moveBy(300, 0, 100)
             repeatCtx.moveBy(-300, 0, 100)
         },)
+        //cookie schieten
+        engine.clock.schedule(() => {
+            const cookie = new Cookie(this.pos.x - 50, this.pos.y, -1)
+            engine.currentScene.add(cookie)
+        }, 2000, true) // elke 2 seconden
     }
     onCollisionStart(event, other) {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
