@@ -1,5 +1,6 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Resources } from "../../resources"
+import { Tv } from "../enemyone"
 
 export class ThreatScanner extends Actor {
     constructor(x, y, side) {
@@ -16,5 +17,13 @@ export class ThreatScanner extends Actor {
         this.scale = new Vector(0.05, 0.2)
         this.graphics.use(Resources.Projectile.toSprite())
         this.pos = new Vector(this.posX + (40 * this.side), this.posY)
+        this.vel = new Vector(300 * this.side, 0)
+    }
+
+    onCollisionStart(event, other) {
+        if (other.owner instanceof Tv) {
+            other.owner.kill()
+            this.kill()
+        }
     }
 }
