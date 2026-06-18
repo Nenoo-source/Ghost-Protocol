@@ -1,5 +1,6 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Ground } from './ground.js'
+import { Platform } from "./platform.js"
 
 export class Player extends Actor {
 
@@ -52,13 +53,13 @@ export class Player extends Actor {
     }
 
     onCollisionStart(event, other) {
-        if (other.owner instanceof Ground) {
+        if (other.owner instanceof Ground || Platform) {
             this.grounded = true
         }
     }
 
     onCollisionEnd(event, other) {
-        if (other.owner instanceof Ground) {
+        if (other.owner instanceof Ground || Platform) {
             this.grounded = false
         }
     }
