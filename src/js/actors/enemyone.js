@@ -34,6 +34,7 @@ export class Tv extends Actor {
     onCollisionStart(event, other) {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
             other.owner.kill()
+            Resources.Damagesound.play()
         }
     }
 }
