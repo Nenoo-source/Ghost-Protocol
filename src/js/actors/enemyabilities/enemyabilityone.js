@@ -2,6 +2,7 @@ import { Actor, Vector, CollisionType } from "excalibur"
 import { Resources } from '../../resources.js'
 import { Player1 } from '../../actors/player1/player1.js'
 import { Player2 } from '../../actors/player2/player2.js'
+import { isCorrectBlock } from "../../actors/player2/2-ability3.js"
 
 export class Cookie extends Actor {
     lifetime = 0
@@ -24,11 +25,30 @@ export class Cookie extends Actor {
         this.scale = new Vector(0.1, 0.1)
     }
     onCollisionStart(event, other) {
-        if (other.owner instanceof Player1 || other.owner instanceof Player2) {
-            other.owner.kill()
-            this.kill()
+
+    // Player2 blocks Cookie with block type 1
+    if (other.owner instanceof Player2) {
+
+        if (isCorrectBlock(other.owner, 1)) {
+
+            // push cookie away
+            this.vel.x *= -2
+            this.vel.y = -200
+
+            return
         }
+
+        other.owner.kill()
+        this.kill()
+        return
     }
+
+    // Player1 cannot block cookies
+    if (other.owner instanceof Player1) {
+        other.owner.kill()
+        this.kill()
+    }
+}
 
     onPostUpdate(engine, delta) {
         super.onPostUpdate(engine, delta)
