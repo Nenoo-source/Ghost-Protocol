@@ -21,7 +21,7 @@ export class Cookie extends Actor {
 
     onInitialize(engine) {
         this.graphics.use(Resources.cookie.toSprite())
-        this.scale = new Vector(0.12, 0.12)
+        this.scale = new Vector(0.1, 0.1)
     }
     onCollisionStart(event, other) {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
