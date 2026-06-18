@@ -1,9 +1,10 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } from "excalibur"
 import { Resources } from "../resources.js"
-import { player1 } from "../actors/player1/player1.js"
-import { tv } from "../actors/enemyone.js"
-import { ground } from "../actors/ground.js"
-import { player2 } from "../actors/player2/player2.js"
+import { Player1 } from "../actors/player1/player1.js"
+import { Tv } from "../actors/enemyone.js"
+import { Ground } from "../actors/ground.js"
+import { Player2 } from "../actors/player2/player2.js"
+import { Platform } from "../actors/platform.js"
 
 
 export class LevelOne extends Scene {
