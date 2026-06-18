@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom, Delta } from "excalibur"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Resources } from "../../resources"
 import { Ground } from '../ground.js'
 import { Player } from '../playerBase.js'
@@ -23,8 +23,8 @@ export class Player1 extends Player {
     } 
 
     onPreUpdate(engine, delta) {
-        if (engine.input.keyboard.wasPressed(Keys.1)) {
-            
+        if (engine.input.keyboard.wasPressed(Keys.Digit1)) {
+            this.attackAbility()
         }
     }
 
