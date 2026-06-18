@@ -4,7 +4,7 @@ import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 const Resources = {
     Background: new ImageSource('images/background.png'),
     start: new ImageSource('images/start.png'),
-    player1: new ImageSource('images/attacking_player.png'),
+    player1: new ImageSource('images/attackPlayer.png'),
     tv: new ImageSource('images/tvenemy.png'),
     player2: new ImageSource('images/defensePlayer.png'),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
