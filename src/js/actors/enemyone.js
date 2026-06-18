@@ -1,7 +1,7 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Resources } from '../resources.js'
 
-export class tv extends Actor {
+export class Tv extends Actor {
     constructor() {
         super({
             width: Resources.tv.width,

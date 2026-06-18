@@ -1,9 +1,9 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } from "excalibur"
 import { Resources } from "../resources.js"
-import { player1 } from "../actors/player1/player1.js"
-import { tv } from "../actors/enemyone.js"
-import { ground } from "../actors/ground.js"
-import { player2 } from "../actors/player2/player2.js"
+import { Player1 } from "../actors/player1/player1.js"
+import { Player2 } from "../actors/player2/player2.js"
+import { Tv } from "../actors/enemyone.js"
+import { Ground } from "../actors/ground.js"
 
 
 export class LevelOne extends Scene {
@@ -20,16 +20,16 @@ export class LevelOne extends Scene {
         background.scale = new Vector(0.85, 0.8)
 
 
-        const p1 = new player1()
+        const p1 = new Player1("player1")
         this.add(p1)
 
-        const p2= new player2()
+        const p2= new Player2("player2")
         this.add(p2)
 
-        const t = new tv()
+        const t = new Tv()
         this.add(t)
 
-        const g = new ground()
+        const g = new Ground()
         this.add(g)
     }
 }
