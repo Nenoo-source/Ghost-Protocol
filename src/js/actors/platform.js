@@ -1,6 +1,5 @@
 import { CollisionType, Actor, Vector, Rectangle, Color } from 'excalibur'
 import { Resources } from '../resources.js'
-import { Buffer } from './buffer.js'
 
 export class Platform extends Actor {
 
