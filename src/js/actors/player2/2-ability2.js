@@ -1,4 +1,5 @@
 import { Keys, Vector } from "excalibur"
+import { Resources } from "../../resources"
 
 // Ability 2: Warp met key 8
 
@@ -48,6 +49,7 @@ function tryActivateWarp(player) {
 
     player1.pos = targetPos
     player1.vel = new Vector(0, player1.vel.y)
+    Resources.Teleport.play()
 
     player.warpCooldownRemaining = WARP_COOLDOWN
 

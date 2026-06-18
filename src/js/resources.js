@@ -17,7 +17,7 @@ const Resources = {
     Lasergun2: new Sound('sounds/Lasergun2.m4a'),
     Gameover: new Sound('sounds/Gameover.mp3'),
     Shielddeflect: new Sound('sounds/Shielddeflect.mp3'),
-    Teleport: new Sound('sounds/Shielddeflect.mp3'),
+    Teleport: new Sound('sounds/Teleport.mp3'),
     Ultshield: new Sound('sounds/Ultshield.mp3'),
     Levelcomplete: new Sound('sounds/Levelcomplete.mp3'),
     Projectile: new ImageSource('images/projectile.png'),
