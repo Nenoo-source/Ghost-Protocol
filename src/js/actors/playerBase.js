@@ -50,6 +50,10 @@ export class Player extends Actor {
         }
 
         this.vel = new Vector(xspeed, this.vel.y)
+
+        if (this.vel.y === 0) {
+            this.grounded = true
+        }
     }
 
     onCollisionStart(self, other, side, contact) {
