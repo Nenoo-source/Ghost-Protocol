@@ -32,23 +32,23 @@ export class LevelTwo extends Scene {
         this.add(this.pb)
 
         //player 1
-        const p1 = new Player1("player1")
-        this.add(p1)
+        this.p1 = new Player1("player1", 100, 540)
+        this.add(this.p1)
 
         //player 2
-        const p2 = new Player2("player2")
-        p2.other = p1
-        this.add(p2)
+         this.p2 = new Player2("player2", 200, 540)
+        this.p2.other = this.p1
+        this.add(this.p2)
 
         // TV enemy
-        const t = new Tv()
-        this.add(t)
+        this.t = new Tv()
+        this.add(this.t)
         // ground
         const g = new Ground()
         this.add(g)
 
-        const c = new Coin(50, 70)
-        this.add(c)
+        this.c = new Coin(50, 70)
+        this.add(this.c)
 
         this.ui = new UI()
         this.add(this.ui)
