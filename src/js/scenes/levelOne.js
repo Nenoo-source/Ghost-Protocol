@@ -42,7 +42,7 @@ export class LevelOne extends Scene {
         const g = new Ground()
         this.add(g)
 
-        const c = new Coin(100, 80)
+        const c = new Coin(100, 70)
         this.add(c)
 
 
@@ -58,7 +58,7 @@ export class LevelOne extends Scene {
             { "x": 700, "y": 250 },
             { "x": 900, "y": 400 },
             { "x": 400, "y": 200 },
-            {"x": 100, "y": 140},
+            { "x": 100, "y": 140 },
 
 
         ]
