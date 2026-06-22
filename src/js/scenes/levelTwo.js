@@ -8,6 +8,7 @@ import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
+import { Player } from "../actors/playerBase.js"
 
 
 export class LevelTwo extends Scene {
@@ -25,7 +26,9 @@ export class LevelTwo extends Scene {
         Resources.Ezdiffmusic1.loop = true;
         Resources.Ezdiffmusic1.play()
 
-
+        //playerBase
+        this.pb = new Player()
+        this.add(this.pb)
 
         //player 1
         const p1 = new Player1("player1")
