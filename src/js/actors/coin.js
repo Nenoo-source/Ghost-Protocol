@@ -9,6 +9,8 @@ export class Coin extends Actor {
         super({ radius: Resources.Coin.width / 2 })
         this.pos = new Vector(x, y)
         this.scale = new Vector(0.1, 0.1)
+
+        this.coinCollected = false
     }
 
     onInitialize(engine) {
@@ -25,6 +27,7 @@ export class Coin extends Actor {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
             this.kill()
             Resources.Coincollect.play()
+            this.coinCollected = true
         }
     }
 }

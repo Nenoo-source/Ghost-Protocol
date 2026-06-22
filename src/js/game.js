@@ -3,6 +3,7 @@ import { Actor, Engine, Vector, DisplayMode, SolverStrategy } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { StartScene } from './scenes/start.js'
 import { LevelOne } from './scenes/levelOne.js'
+import { LevelTwo } from './scenes/levelTwo.js'
 
 export class Game extends Engine {
 
@@ -24,6 +25,7 @@ export class Game extends Engine {
         console.log("start de game!")
         this.addScene("start", new StartScene())
         this.addScene("game", new LevelOne())
+        this.addScene("LevelTwo", new LevelTwo())
         this.goToScene("start")
     }
 
