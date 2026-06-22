@@ -5,7 +5,7 @@ export class Laser extends Actor {
 
     constructor(x, y) {
         super({
-            width: 5000,
+            width: 2500,
             height: 20
         })
         this.pos = new Vector(0, 600)

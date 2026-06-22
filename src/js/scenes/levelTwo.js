@@ -13,7 +13,7 @@ import { UI } from "../ui.js"
 
 
 export class LevelTwo extends Scene {
-    onInitialize(engine, x, y) {
+    onInitialize(engine, x, y, scX, scY) {
         const background = new Actor({
             x: engine.halfDrawWidth,
             y: engine.halfDrawHeight,
@@ -62,15 +62,15 @@ export class LevelTwo extends Scene {
     addPlatforms() {
         // platforms
         let positions = [
-            { "x": 700, "y": 250 },
-            { "x": 900, "y": 400 },
-            { "x": 400, "y": 200 },
-            { "x": 100, "y": 140 },
+            { "x": 700, "y": 250, "scX": 0.5, "scY": 0.5 },
+            { "x": 900, "y": 400, "scX": 0.5, "scY": 0.5 },
+            { "x": 400, "y": 200, "scX": 0.5, "scY": 0.5 },
+            { "x": 100, "y": 140, "scX": 0.9, "scY": 0.5 },
 
 
         ]
         for (let pos of positions) {
-            this.add(new Platform(pos.x, pos.y))
+            this.add(new Platform(pos.x, pos.y, pos.scX, pos.scY))
         }
     }
 
