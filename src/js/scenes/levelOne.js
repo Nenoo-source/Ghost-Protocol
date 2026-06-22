@@ -8,7 +8,7 @@ import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
-import { UI } from "../UI.js"
+import { UI } from "../ui.js"
 
 
 export class LevelOne extends Scene {
@@ -43,7 +43,7 @@ export class LevelOne extends Scene {
         // TV enemy
         const t = new Tv()
         this.add(t)
-        
+
         // ground
         const g = new Ground()
         this.add(g)
@@ -87,10 +87,6 @@ export class LevelOne extends Scene {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
-        }
-        
-        if (this.pb.safety <= 0) {
-            this.clear()
         }
     }
 }
