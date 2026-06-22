@@ -63,10 +63,11 @@ export class LevelTwo extends Scene {
     addPlatforms() {
         // platforms
         let positions = [
-            { "x": 700, "y": 250, "scX": 0.5, "scY": 0.5 },
-            { "x": 900, "y": 400, "scX": 0.5, "scY": 0.5 },
-            { "x": 1200, "y": 140, "scX": 0.5, "scY": 0.5 },
-            { "x": 100, "y": 140, "scX": 0.9, "scY": 0.5 },
+            { "x": 600, "y": 400, "scX": 0.5, "scY": 0.5 },
+            { "x": 400, "y": 275, "scX": 0.5, "scY": 0.5 },
+            { "x": 800, "y": 275, "scX": 0.5, "scY": 0.5 },
+            { "x": 1200, "y": 140, "scX": 2, "scY": 0.5 },
+            { "x": 100, "y": 140, "scX": 1, "scY": 0.5 },
 
 
         ]
