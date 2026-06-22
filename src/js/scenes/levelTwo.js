@@ -68,7 +68,7 @@ export class LevelTwo extends Scene {
     }
 
     onPreUpdate(engine) {
-        if (safety === 0) {
+        if (this.pb.safety <= 0) {
             engine.goToScene("GameOver", {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })

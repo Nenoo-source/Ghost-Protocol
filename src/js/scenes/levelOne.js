@@ -88,6 +88,12 @@ export class LevelOne extends Scene {
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
         }
+        if (this.pb.safety <= 0) {
+            engine.goToScene("GameOver", {
+                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
+            })
+        }
     }
 }
 
