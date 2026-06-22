@@ -10,6 +10,7 @@ import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
 import { Player } from "../actors/playerBase.js"
 import { UI } from "../ui.js"
+import { Cable } from "../actors/enemytwo.js"
 
 
 export class LevelTwo extends Scene {
@@ -41,8 +42,8 @@ export class LevelTwo extends Scene {
         this.add(this.p2)
 
         // TV enemy
-        this.t = new Tv()
-        this.add(this.t)
+        this.ca = new Cable()
+        this.add(this.ca)
         // ground
         const g = new Ground()
         this.add(g)
