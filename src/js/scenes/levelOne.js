@@ -70,8 +70,8 @@ export class LevelOne extends Scene {
 
 
     onPreUpdate(engine) {
-        if (this.c.coinCollected === true && !this._wentToLevelTwo) {
-            this._wentToLevelTwo = true
+        if (this.c.coinCollected === true && !this.wentToLevelTwo) {
+            this.wentToLevelTwo = true
 
             engine.goToScene("LevelTwo", {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
