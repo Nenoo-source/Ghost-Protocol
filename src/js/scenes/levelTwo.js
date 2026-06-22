@@ -9,6 +9,7 @@ import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
 import { Player } from "../actors/playerBase.js"
+import { UI } from "../ui.js"
 
 
 export class LevelTwo extends Scene {
@@ -48,6 +49,9 @@ export class LevelTwo extends Scene {
 
         const c = new Coin(100, 70)
         this.add(c)
+
+        this.ui = new UI()
+        this.add(this.ui)
 
 
 
