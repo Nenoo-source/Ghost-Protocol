@@ -47,7 +47,7 @@ export class LevelTwo extends Scene {
         const g = new Ground()
         this.add(g)
 
-        this.c = new Coin(100, 70)
+        this.c = new Coin(50, 70)
         this.add(this.c)
 
         this.ui = new UI()
@@ -64,7 +64,7 @@ export class LevelTwo extends Scene {
         let positions = [
             { "x": 700, "y": 250, "scX": 0.5, "scY": 0.5 },
             { "x": 900, "y": 400, "scX": 0.5, "scY": 0.5 },
-            { "x": 400, "y": 200, "scX": 0.5, "scY": 0.5 },
+            { "x": 1200, "y": 140, "scX": 0.5, "scY": 0.5 },
             { "x": 100, "y": 140, "scX": 0.9, "scY": 0.5 },
 
 
