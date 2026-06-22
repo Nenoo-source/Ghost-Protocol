@@ -9,7 +9,6 @@ export class StartScene extends Scene {
             width: engine.drawWidth,
             height: engine.drawHeight,
             z: -1,
-
         })
         background.graphics.use(Resources.start.toSprite())
         this.add(background)
