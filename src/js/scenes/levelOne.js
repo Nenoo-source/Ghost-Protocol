@@ -8,6 +8,7 @@ import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { UI } from "../ui.js"
+import { GameOver } from "./gameOver.js"
 
 
 export class LevelOne extends Scene {
@@ -40,7 +41,7 @@ export class LevelOne extends Scene {
         // TV enemy
         const t = new Tv()
         this.add(t)
-        
+
         // ground
         const g = new Ground()
         this.add(g)
@@ -81,6 +82,13 @@ export class LevelOne extends Scene {
             this.wentToLevelTwo = true
 
             engine.goToScene("LevelTwo", {
+                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
+            })
+        }
+
+        if (safety === 0) {
+            engine.goToScene("GameOver", {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
