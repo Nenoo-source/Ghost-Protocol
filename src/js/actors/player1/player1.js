@@ -6,12 +6,14 @@ import { ThreatScanner } from './1-ability1.js'
 
 export class Player1 extends Player {
 
-    constructor(player) {
+    constructor(player, x, y) {
         super({
             width: Resources.player1.width,
             height: Resources.player1.height
         })
         this.player = player
+        this.x = x
+        this.y = y
     }
 
     onInitialize(engine) {
@@ -19,7 +21,7 @@ export class Player1 extends Player {
 
         this.scale = new Vector(0.1, 0.1)
         this.graphics.use(Resources.player1.toSprite())
-        this.pos = new Vector(100, 540)
+        this.pos = new Vector(this.x, this.y)
 
         this.side = 1
     }
