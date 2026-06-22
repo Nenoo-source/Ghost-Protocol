@@ -9,13 +9,15 @@ import { setupUltimate, updateUltimate } from "./2-ability4.js"
 
 export class Player2 extends Player {
 
-    constructor(player) {
+    constructor(player, x, y) {
         super({
             width: Resources.player2.width,
             height: Resources.player2.height
         })
 
         this.player = player
+        this.x = x
+        this.y = y
         this.other = null
     }
 
@@ -24,7 +26,7 @@ export class Player2 extends Player {
 
         this.scale = new Vector(0.12, 0.12)
         this.graphics.use(Resources.player2.toSprite())
-        this.pos = new Vector(200, 540)
+        this.pos = new Vector(this.x, this.y)
 
         setupSuperJump(this)
         setupWarp(this)
