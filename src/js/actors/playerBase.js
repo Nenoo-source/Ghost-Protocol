@@ -19,12 +19,12 @@ export class Player extends Actor {
 
         if (engine.input.keyboard.wasPressed(Keys.W) && this.player === "player1") {
             if (this.grounded) {
-                this.body.applyLinearImpulse(new Vector(0, -350 * delta))
+                this.body.applyLinearImpulse(new Vector(0, -250 * delta))
             }
         }
         if (engine.input.keyboard.wasPressed(Keys.I) && this.player === "player2") {
             if (this.grounded) {
-                this.body.applyLinearImpulse(new Vector(0, -350 * delta))
+                this.body.applyLinearImpulse(new Vector(0, -250 * delta))
             }
         }
 
