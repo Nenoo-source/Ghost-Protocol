@@ -1,4 +1,5 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
+import { Laser } from './actors/laser'
 
 // voeg hier jouw eigen resources toe
 const Resources = {
@@ -28,7 +29,9 @@ const Resources = {
     Superjumpsound: new Sound('sounds/Highjump.mp3'),
     Scansound: new Sound('sounds/Scan.mp3'),
     Invisibility: new Sound('sounds/Invisibility.mp3'),
-    Coincollect: new Sound('sounds/Coincollect.mp3')
+    Coincollect: new Sound('sounds/Coincollect.mp3'),
+    Laser: new ImageSource(''),
+    Button: new ImageSource('')
 }
 
 
