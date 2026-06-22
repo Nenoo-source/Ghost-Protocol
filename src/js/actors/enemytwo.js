@@ -1,47 +1,81 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
-import { Resources } from '../resources.js'
-import { Player1 } from "./player1/player1.js"
-import { Player2 } from "./player2/player2.js"
-import { Cookie } from "./enemyabilities/enemyabilityone.js"
+import {
+    Actor,
+    CollisionType,
+    DegreeOfFreedom,
+    Vector
+} from "excalibur";
 
+import { SpriteSheet, Animation } from "excalibur";
+import { Resources } from '../resources.js';
+import { Player1 } from "./player1/player1.js";
+import { Player2 } from "./player2/player2.js";
 
 export class Cable extends Actor {
 
     constructor() {
         super({
-            width: Resources.cablemonster.width,
-            height: Resources.cablemonster.height
-        })
+            width: 160,
+            height: 160
+        });
     }
 
     onInitialize(engine) {
-        this._shootTimer = 0
+        // Debug check
+        console.log("Loaded walk sheet:", Resources.revenantWalk);
+        // --- WALK SPRITE SHEET ---
+        const walkSheet = SpriteSheet.fromImageSource({
+            image: Resources.revenantWalk,
+            grid: {
+                rows: 2,
+                columns: 2,
+                spriteWidth: 128,
+                spriteHeight: 128
+            }
+        });
 
-        this.graphics.use(Resources.cablemonster.toSprite())
-        this.scale = new Vector(0.16, 0.16)
-        this.pos = new Vector(800, 560)
-        //zwaartekracht
-        this.body.useGravity = true
-        this.body.collisionType = CollisionType.Active
-        this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation)
+        // --- WALK ANIMATIE (oude API) ---
+        const walkAnim = Animation.fromSpriteSheet(
+            walkSheet,
+            [0, 1, 2, 3], // frames
+            150                       // frameDuration
+        );
+        walkAnim.loop = true;
+
+        // Animatie activeren
+        this.graphics.use(walkAnim);
+
+        // --- BASIS INSTELLINGEN ---
+        this.scale = new Vector(1.5, 1.5);
+        this.pos = new Vector(800, 560);
+
+        this.body.useGravity = true;
+        this.body.collisionType = CollisionType.Active;
+        this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
+
+        // --- BEWEGING ---
         this.actions.repeat((repeatCtx) => {
-            repeatCtx.moveBy(300, 0, 100)
-            repeatCtx.moveBy(-300, 0, 100)
-        },)
+            repeatCtx.moveBy(300, 0, 100);
+            repeatCtx.moveBy(-300, 0, 100);
+        });
 
+        this._shootTimer = 0;
     }
-    onCollisionStart(event, other) {
-        if (other.owner instanceof Player1) {
-            Resources.Damagesound.play()
-            this.scene.pb.safety -= 10
-            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
-            this.scene.p1.pos = new Vector(100, 540)
+
+    onCollisionStart(event) {
+        const other = event.other;
+
+        if (other instanceof Player1) {
+            Resources.Damagesound.play();
+            this.scene.pb.safety -= 10;
+            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
+            this.scene.p1.pos = new Vector(100, 540);
         }
-        if (other.owner instanceof Player2) {
-            Resources.Damagesound.play()
-            this.scene.pb.safety -= 10
-            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
-            this.scene.p2.pos = new Vector(200, 540)
+
+        if (other instanceof Player2) {
+            Resources.Damagesound.play();
+            this.scene.pb.safety -= 10;
+            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
+            this.scene.p2.pos = new Vector(200, 540);
         }
     }
 }
