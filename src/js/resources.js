@@ -1,4 +1,5 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
+import { Laser } from './actors/laser'
 
 // voeg hier jouw eigen resources toe
 const Resources = {
@@ -10,6 +11,7 @@ const Resources = {
     defensiveState: new ImageSource('images/defensive_player_blocking_state.png'),
     cookie: new ImageSource('images/cookies.png'),
     Coin: new ImageSource('images/Coin.png'),
+    GameOver: new ImageSource('images/gameover.png'),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),
@@ -29,7 +31,9 @@ const Resources = {
     Scansound: new Sound('sounds/Scan.mp3'),
     Invisibility: new Sound('sounds/Invisibility.mp3'),
     Coincollect: new Sound('sounds/Coincollect.mp3'),
-    SafetyOutline: new ImageSource('images/safetyBarOutline.png')
+    SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
+    Laser: new ImageSource(''),
+    Button: new ImageSource('')
 }
 
 

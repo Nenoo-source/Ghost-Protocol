@@ -8,6 +8,8 @@ import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
+import { Player } from "../actors/playerBase.js"
+import { UI } from "../ui.js"
 
 
 export class LevelTwo extends Scene {
@@ -25,7 +27,9 @@ export class LevelTwo extends Scene {
         Resources.Ezdiffmusic1.loop = true;
         Resources.Ezdiffmusic1.play()
 
-
+        //playerBase
+        this.pb = new Player()
+        this.add(this.pb)
 
         //player 1
         const p1 = new Player1("player1")
@@ -45,6 +49,9 @@ export class LevelTwo extends Scene {
 
         const c = new Coin(100, 70)
         this.add(c)
+
+        this.ui = new UI()
+        this.add(this.ui)
 
 
 
@@ -68,7 +75,9 @@ export class LevelTwo extends Scene {
     }
 
     onPreUpdate(engine) {
-        if (safety === 0) {
+        if (this.pb.safety <= 0) {
+            this.pb.safety = 50
+            this.ui.safetybar.scale = new Vector(this.pb.safety / 50, 1)
             engine.goToScene("GameOver", {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
