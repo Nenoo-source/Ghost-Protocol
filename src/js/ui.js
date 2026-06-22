@@ -12,13 +12,12 @@ export class UI extends ScreenElement {
         this.topMidX = 640
         this.topMidY = 40
 
-        this.safetybarBack = new Actor({ x: this.topMidX - 225, y: this.topMidY, color: Color.fromHex('#000000ff'), width: 450, height: 40, anchor: new Vector(0, 0) })
+        this.safetybarBack = new Actor({ x: this.topMidX - 112.5, y: this.topMidY, color: Color.fromHex('#000000ff'), width: 225, height: 20, anchor: new Vector(0, 0) })
         this.addChild(this.safetybarBack)
-        this.safetybar = new Actor({ x: this.topMidX - 225, y: this.topMidY, color: Color.fromHex('#48cae4'), width: 225, height: 40, anchor: new Vector(0, 0) })
+        this.safetybar = new Actor({ x: this.topMidX - 112.5, y: this.topMidY, color: Color.fromHex('#48cae4'), width: 112.5, height: 20, anchor: new Vector(0, 0) })
         this.addChild(this.safetybar)
 
-        this.outline = new SafetyOutline(this.topMidX, this.topMidY + 30)
+        this.outline = new SafetyOutline(this.topMidX, this.topMidY + 15)
         this.addChild(this.outline)
-
     }
 }

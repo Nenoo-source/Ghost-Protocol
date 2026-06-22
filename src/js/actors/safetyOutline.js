@@ -10,7 +10,7 @@ export class SafetyOutline extends Actor {
     }
 
     onInitialize(engine) {
-        this.scale = new Vector(0.35, 0.35)
+        this.scale = new Vector(0.175, 0.175)
         this.graphics.use(Resources.SafetyOutline.toSprite())
         this.pos = new Vector(this.x, this.y)
     }
