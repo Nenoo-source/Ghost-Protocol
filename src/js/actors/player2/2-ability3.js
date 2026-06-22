@@ -15,6 +15,8 @@ export function setupBlock(player) {
 }
 
 export function updateBlock(player, engine, delta) {
+    const HOLD_THRESHOLD = 120
+
     const blockKeyHeld =
         engine.input.keyboard.isHeld(Keys.Digit9) ||
         engine.input.keyboard.isHeld(Keys.Num9)
@@ -30,12 +32,14 @@ export function updateBlock(player, engine, delta) {
     if (blockKeyPressed && !player.blocking) {
         player.pendingBlockTap = true
         player.blockHoldTimer = 0
+        player.blocking = true
+
+        // start blocking right away on tap
+        player.graphics.use(Resources.defensiveState.toSprite())
     }
 
     if (blockKeyHeld) {
         player.blockHoldTimer += delta
-
-        const HOLD_THRESHOLD = 120
 
         if (player.blockHoldTimer >= HOLD_THRESHOLD) {
             player.blocking = true
@@ -47,7 +51,7 @@ export function updateBlock(player, engine, delta) {
     }
 
     if (blockKeyReleased) {
-        if (player.pendingBlockTap) {
+        if (player.pendingBlockTap && player.blockHoldTimer < HOLD_THRESHOLD) {
             cycleBlockType(player)
         }
 
@@ -73,5 +77,5 @@ export function getBlockType(player) {
 }
 
 export function isCorrectBlock(player, attackBlockType) {
-    return isBlocking(player) && player.blockType === attackBlockType
+    return isBlocking(player)
 }
