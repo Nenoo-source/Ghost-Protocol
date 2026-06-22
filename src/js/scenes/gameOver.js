@@ -17,6 +17,15 @@ export class GameOver extends Scene {
         Resources.Menumusic.play()
     }
 
+    onPreUpdate(engine) {
+        if (engine.input.keyboard.wasPressed(Keys.Space)) {
+            engine.goToScene("start", {
+                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
+            })
+        }
+    }
+
     onDeactivate(engine) {
         Resources.Menumusic.stop()
     }

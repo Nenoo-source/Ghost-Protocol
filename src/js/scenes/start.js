@@ -1,5 +1,6 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, Text } from "excalibur"
 import { Resources } from "../resources.js"
+import { Player } from "../actors/playerBase.js"
 
 export class StartScene extends Scene {
     onInitialize(engine) {
@@ -44,6 +45,7 @@ export class StartScene extends Scene {
     }
 
     onPreUpdate(engine) {
+
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
             engine.goToScene("game", {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
