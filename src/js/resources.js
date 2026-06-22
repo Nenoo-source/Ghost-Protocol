@@ -12,6 +12,7 @@ const Resources = {
     cookie: new ImageSource('images/cookies.png'),
     Coin: new ImageSource('images/Coin.png'),
     GameOver: new ImageSource('images/gameover.png'),
+    cablemonster: new ImageSource('images/cablemonster.png'),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),
