@@ -10,7 +10,7 @@ export class UI extends ScreenElement {
 
     onInitialize(engine) {
         this.topMidX = 640
-        this.topMidY = 40
+        this.topMidY = 10
 
         this.safetybarBack = new Actor({ x: this.topMidX - 112.5, y: this.topMidY, color: Color.fromHex('#000000ff'), width: 225, height: 20, anchor: new Vector(0, 0) })
         this.addChild(this.safetybarBack)
