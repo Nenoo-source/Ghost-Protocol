@@ -36,7 +36,7 @@ export class LevelTwo extends Scene {
         this.add(this.p1)
 
         //player 2
-         this.p2 = new Player2("player2", 200, 540)
+        this.p2 = new Player2("player2", 200, 540)
         this.p2.other = this.p1
         this.add(this.p2)
 
@@ -62,10 +62,11 @@ export class LevelTwo extends Scene {
     addPlatforms() {
         // platforms
         let positions = [
-            { "x": 700, "y": 250, "scX": 0.5, "scY": 0.5 },
-            { "x": 900, "y": 400, "scX": 0.5, "scY": 0.5 },
-            { "x": 1200, "y": 140, "scX": 0.5, "scY": 0.5 },
-            { "x": 100, "y": 140, "scX": 0.9, "scY": 0.5 },
+            { "x": 600, "y": 400, "scX": 0.5, "scY": 0.5 },
+            { "x": 400, "y": 275, "scX": 0.5, "scY": 0.5 },
+            { "x": 800, "y": 275, "scX": 0.5, "scY": 0.5 },
+            { "x": 1200, "y": 140, "scX": 2, "scY": 0.5 },
+            { "x": 100, "y": 140, "scX": 1, "scY": 0.5 },
 
 
         ]
