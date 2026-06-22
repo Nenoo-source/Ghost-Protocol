@@ -13,6 +13,9 @@ export class Player extends Actor {
         this.body.useGravity = true
         this.body.collisionType = CollisionType.Active
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation)
+
+        this.safety = 50
+        this.movementSpeed = 300
     }
 
     onPreUpdate(engine, delta) {
@@ -28,28 +31,27 @@ export class Player extends Actor {
             }
         }
 
-        let movementSpeed = 300
-        let xspeed = 0
+        this.xspeed = 0
 
         if (engine.input.keyboard.isHeld(Keys.A) && this.player === "player1") {
-            xspeed -= movementSpeed
+            this.xspeed -= this.movementSpeed
             this.graphics.flipHorizontal = true
         }
         if (engine.input.keyboard.isHeld(Keys.J) && this.player === "player2") {
-            xspeed -= movementSpeed
+            this.xspeed -= this.movementSpeed
             this.graphics.flipHorizontal = true
         }
 
         if (engine.input.keyboard.isHeld(Keys.D) && this.player === "player1") {
-            xspeed += movementSpeed
+            this.xspeed += this.movementSpeed
             this.graphics.flipHorizontal = false
         }
         if (engine.input.keyboard.isHeld(Keys.L) && this.player === "player2") {
-            xspeed += movementSpeed
+            this.xspeed += this.movementSpeed
             this.graphics.flipHorizontal = false
         }
 
-        this.vel = new Vector(xspeed, this.vel.y)
+        this.vel = new Vector(this.xspeed, this.vel.y)
 
         if (this.vel.y === 0) {
             this.grounded = true

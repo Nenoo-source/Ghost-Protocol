@@ -1,5 +1,6 @@
 import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } from "excalibur"
 import { Resources } from "../resources.js"
+import { Player } from "../actors/playerBase.js"
 import { Player1 } from "../actors/player1/player1.js"
 import { Tv } from "../actors/enemyone.js"
 import { Ground } from "../actors/ground.js"
@@ -7,7 +8,7 @@ import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
-import { UI } from "../ui.js"
+import { UI } from "../UI.js"
 
 
 export class LevelOne extends Scene {
@@ -26,16 +27,18 @@ export class LevelOne extends Scene {
         Resources.Ezdiffmusic1.play()
         this.wentToLevelTwo = false
 
-
+        //playerBase
+        this.pb = new Player()
+        this.add(this.pb)
 
         //player 1
-        const p1 = new Player1("player1")
-        this.add(p1)
+        this.p1 = new Player1("player1")
+        this.add(this.p1)
 
         //player 2
-        const p2 = new Player2("player2")
-        p2.other = p1
-        this.add(p2)
+        this.p2 = new Player2("player2")
+        this.p2.other = this.p1
+        this.add(this.p2)
 
         // TV enemy
         const t = new Tv()
@@ -84,6 +87,10 @@ export class LevelOne extends Scene {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
+        }
+        
+        if (this.pb.safety <= 0) {
+            this.clear()
         }
     }
 }

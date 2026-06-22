@@ -32,9 +32,17 @@ export class Tv extends Actor {
 
     }
     onCollisionStart(event, other) {
-        if (other.owner instanceof Player1 || other.owner instanceof Player2) {
-            other.owner.kill()
+        if (other.owner instanceof Player1) {
             Resources.Damagesound.play()
+            this.scene.pb.safety -= 10
+            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+            this.scene.p1.pos = new Vector(100, 540)
+        }
+        if (other.owner instanceof Player2) {
+            Resources.Damagesound.play()
+            this.scene.pb.safety -= 10
+            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+            this.scene.p2.pos = new Vector(200, 540)
         }
     }
 
