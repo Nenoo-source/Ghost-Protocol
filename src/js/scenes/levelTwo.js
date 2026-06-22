@@ -7,6 +7,7 @@ import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
+import { GameOver } from "./gameOver.js"
 
 
 export class LevelTwo extends Scene {
@@ -63,6 +64,15 @@ export class LevelTwo extends Scene {
         ]
         for (let pos of positions) {
             this.add(new Platform(pos.x, pos.y))
+        }
+    }
+
+    onPreUpdate(engine) {
+        if (safety === 0) {
+            engine.goToScene("GameOver", {
+                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
+            })
         }
     }
 }

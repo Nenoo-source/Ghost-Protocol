@@ -30,6 +30,7 @@ const Resources = {
     Scansound: new Sound('sounds/Scan.mp3'),
     Invisibility: new Sound('sounds/Invisibility.mp3'),
     Coincollect: new Sound('sounds/Coincollect.mp3'),
+    SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
     Laser: new ImageSource(''),
     Button: new ImageSource('')
 }

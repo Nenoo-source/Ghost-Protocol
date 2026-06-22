@@ -17,7 +17,7 @@ export class ThreatScanner extends Actor {
         this.scale = new Vector(0.05, 0.2)
         this.graphics.use(Resources.Projectile.toSprite())
         this.pos = new Vector(this.posX + (40 * this.side), this.posY)
-        this.vel = new Vector(300 * this.side, 0)
+        this.vel = new Vector(600 * this.side, 0)
     }
 
     onCollisionStart(event, other) {
