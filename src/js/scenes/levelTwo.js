@@ -47,7 +47,7 @@ export class LevelTwo extends Scene {
         const g = new Ground()
         this.add(g)
 
-        this.c = new Coin(50, 70)
+        this.c = new Coin(50, 140)
         this.add(this.c)
 
         this.ui = new UI()
@@ -62,11 +62,11 @@ export class LevelTwo extends Scene {
     addPlatforms() {
         // platforms
         let positions = [
-            { "x": 600, "y": 400, "scX": 0.5, "scY": 0.5 },
-            { "x": 400, "y": 275, "scX": 0.5, "scY": 0.5 },
-            { "x": 800, "y": 275, "scX": 0.5, "scY": 0.5 },
-            { "x": 1200, "y": 140, "scX": 2, "scY": 0.5 },
-            { "x": 100, "y": 140, "scX": 1, "scY": 0.5 },
+            { "x": 600, "y": 500, "scX": 0.5, "scY": 0.5 },
+            { "x": 400, "y": 300, "scX": 0.5, "scY": 0.5 },
+            { "x": 800, "y": 300, "scX": 0.5, "scY": 0.5 },
+            { "x": 1200, "y": 200, "scX": 2, "scY": 0.5 },
+            { "x": 100, "y": 200, "scX": 1, "scY": 0.5 },
 
 
         ]
