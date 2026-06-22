@@ -7,10 +7,9 @@ import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
-import { UI } from "../ui.js"
 
 
-export class LevelOne extends Scene {
+export class LevelTwo extends Scene {
     onInitialize(engine, x, y) {
         const background = new Actor({
             x: engine.halfDrawWidth,
@@ -24,7 +23,6 @@ export class LevelOne extends Scene {
         background.scale = new Vector(0.85, 0.8)
         Resources.Ezdiffmusic1.loop = true;
         Resources.Ezdiffmusic1.play()
-        this.wentToLevelTwo = false
 
 
 
@@ -40,24 +38,17 @@ export class LevelOne extends Scene {
         // TV enemy
         const t = new Tv()
         this.add(t)
-        
         // ground
         const g = new Ground()
         this.add(g)
 
-        // coin
-        this.c = new Coin(100, 70)
-        this.add(this.c)
-
-        // ui
-        this.ui = new UI()
-        this.add(this.ui)
+        const c = new Coin(100, 70)
+        this.add(c)
 
 
 
         this.addPlatforms()
     }
-
 
 
     addPlatforms() {
@@ -72,18 +63,6 @@ export class LevelOne extends Scene {
         ]
         for (let pos of positions) {
             this.add(new Platform(pos.x, pos.y))
-        }
-    }
-
-
-    onPreUpdate(engine) {
-        if (this.c.coinCollected === true && !this.wentToLevelTwo) {
-            this.wentToLevelTwo = true
-
-            engine.goToScene("LevelTwo", {
-                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
-                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
-            })
         }
     }
 }
