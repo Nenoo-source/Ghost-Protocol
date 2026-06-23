@@ -1,10 +1,4 @@
-import {
-    Actor,
-    CollisionType,
-    DegreeOfFreedom,
-    Vector
-} from "excalibur";
-
+import { Actor, CollisionType, DegreeOfFreedom, Vector } from "excalibur";
 import { SpriteSheet, Animation } from "excalibur";
 import { Resources } from '../resources.js';
 import { Player1 } from "./player1/player1.js";
@@ -14,8 +8,8 @@ export class Cable extends Actor {
 
     constructor() {
         super({
-            width: 160,
-            height: 160
+            width: 60,
+            height: 110
         });
     }
 
@@ -77,5 +71,9 @@ export class Cable extends Actor {
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
             this.scene.p2.pos = new Vector(200, 540);
         }
+    }
+
+    onPreUpdate(engine) {
+        if ()
     }
 }
