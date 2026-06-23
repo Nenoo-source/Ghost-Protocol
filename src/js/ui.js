@@ -46,8 +46,8 @@ export class UI extends ScreenElement {
     blockSprite.scale = new Vector(0.15, 0.15);
 
     const blockIcon = new ScreenElement({
-      x: engine.drawWidth - 300,
-      y: engine.drawHeight - 100,
+      x: engine.drawWidth - 200,
+      y: engine.drawHeight - 110,
     });
     blockIcon.graphics.use(blockSprite);
     this.addChild(blockIcon);
@@ -56,8 +56,8 @@ export class UI extends ScreenElement {
     warpSprite.scale = new Vector(0.15, 0.15);
 
     const warpIcon = new ScreenElement({
-      x: engine.drawWidth - 200,
-      y: engine.drawHeight - 100,
+      x: engine.drawWidth - 300,
+      y: engine.drawHeight - 110,
     });
     warpIcon.graphics.use(warpSprite);
     this.addChild(warpIcon);
@@ -67,8 +67,8 @@ export class UI extends ScreenElement {
     superJumpSprite.scale = new Vector(0.15, 0.15);
 
     const superJumpIcon = new ScreenElement({
-      x: engine.drawWidth - 100,
-      y: engine.drawHeight - 100,
+      x: engine.drawWidth - 400,
+      y: engine.drawHeight - 110,
     });
     superJumpIcon.graphics.use(superJumpSprite);
     this.addChild(superJumpIcon);
