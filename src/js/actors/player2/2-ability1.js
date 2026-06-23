@@ -17,7 +17,6 @@ export function setupSuperJump(player) {
 }
 
 export function updateSuperJump(player, engine, delta) {
-    // cooldown aftellen
     if (player.superJumpCooldownRemaining > 0) {
         player.superJumpCooldownRemaining -= delta
         if (player.superJumpCooldownRemaining < 0) {
@@ -25,7 +24,16 @@ export function updateSuperJump(player, engine, delta) {
         }
     }
 
+    // 7 arms the ability, doesn't jump yet
     if (engine.input.keyboard.wasPressed(Keys.Digit7) || engine.input.keyboard.wasPressed(Keys.Num7)) {
+        if (player.superJumpCooldownRemaining <= 0) {
+            player.superJumpArmed = true
+        }
+    }
+
+    // I executes the super jump only if armed
+    if (engine.input.keyboard.wasPressed(Keys.I) && player.superJumpArmed) {
+        player.superJumpArmed = false
         tryActivateSuperJump(player, delta)
     }
 }

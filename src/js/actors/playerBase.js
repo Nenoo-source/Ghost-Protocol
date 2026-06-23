@@ -26,9 +26,10 @@ export class Player extends Actor {
             }
         }
         if (engine.input.keyboard.wasPressed(Keys.I) && this.player === "player2") {
-            if (this.grounded) {
+            if (this.grounded && !this.superJumpArmed) {  // ← add the check
                 this.body.applyLinearImpulse(new Vector(0, -250 * delta))
             }
+        
         }
 
         this.xspeed = 0
