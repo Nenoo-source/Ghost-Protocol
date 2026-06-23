@@ -13,8 +13,8 @@ export class GameOver extends Scene {
         background.graphics.use(Resources.GameOver.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
-        Resources.Menumusic.loop = true;
-        Resources.Menumusic.play()
+        Resources.GameOverMusic.loop = true;
+        Resources.GameOverMusic.play()
     }
 
     onPreUpdate(engine) {
