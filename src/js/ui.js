@@ -46,12 +46,12 @@ export class UI extends ScreenElement {
         const blockSprite = Resources.BlockUI.toSprite();
         blockSprite.scale = new Vector(0.15, 0.15);
 
-        const blockIcon = new ScreenElement({
+        this.blockIcon = new ScreenElement({
             x: engine.drawWidth - 200,
             y: engine.drawHeight - 118,
         });
-        blockIcon.graphics.use(blockSprite);
-        this.addChild(blockIcon);
+        this.blockIcon.graphics.use(blockSprite);
+        this.addChild(this.blockIcon);
 
 
         const attackSprite = Resources.AttackUI.toSprite();
@@ -67,23 +67,23 @@ export class UI extends ScreenElement {
         const warpSprite = Resources.WarpUI.toSprite();
         warpSprite.scale = new Vector(0.15, 0.15);
 
-        const warpIcon = new ScreenElement({
+        this.warpIcon = new ScreenElement({
             x: engine.drawWidth - 300,
             y: engine.drawHeight - 120,
         });
-        warpIcon.graphics.use(warpSprite);
-        this.addChild(warpIcon);
+        this.warpIcon.graphics.use(warpSprite);
+        this.addChild(this.warpIcon);
 
 
         const superJumpSprite = Resources.superJumpUI.toSprite();
         superJumpSprite.scale = new Vector(0.13, 0.13   );
 
-        const superJumpIcon = new ScreenElement({
+        this.superJumpIcon = new ScreenElement({
             x: engine.drawWidth - 400,
             y: engine.drawHeight - 105,
         });
-        superJumpIcon.graphics.use(superJumpSprite);
-        this.addChild(superJumpIcon);
+        this.superJumpIcon.graphics.use(superJumpSprite);
+        this.addChild(this.superJumpIcon);
 
     }
 
@@ -92,6 +92,18 @@ export class UI extends ScreenElement {
             this.attackIcon.graphics.opacity = 0.4
         } else {
             this.attackIcon.graphics.opacity = 1
+        }
+
+        if (this.scene.p2.superJumpCooldownRemaining > 0) {
+            this.superJumpIcon.graphics.opacity = 0.4
+        } else {
+            this.superJumpIcon.graphics.opacity = 1
+        }
+
+        if (this.scene.p2.warpCooldownRemaining > 0) {
+            this.warpIcon.graphics.opacity = 0.4
+        } else {
+            this.warpIcon.graphics.opacity = 1
         }
     }
 }
