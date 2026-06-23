@@ -64,7 +64,7 @@ export class Player1 extends Player {
         if (this.cooldown2) {
             this.cooldown2Count++
         }
-        if (this.cooldown2Count >= 600) {
+        if (this.cooldown2Count >= 1200) {
             this.cooldown2 = false
         }
 
