@@ -9,7 +9,7 @@ import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
 import { Player } from "../actors/playerBase.js"
-import { UI } from "../ui.js"
+import { UI } from "../UI.js"
 import { Cable } from "../actors/enemytwo.js"
 import {Laser} from "../actors/Laser.js"
 import {Button} from "../actors/button.js"
@@ -27,8 +27,8 @@ export class LevelTwo extends Scene {
         background.graphics.use(Resources.Background.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
-        Resources.Ezdiffmusic1.loop = true;
-        Resources.Ezdiffmusic1.play()
+        Resources.Middiffmusic1.loop = true;
+        Resources.Middiffmusic1.play()
 
         //playerBase
         this.pb = new Player()
