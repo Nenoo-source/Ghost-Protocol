@@ -57,6 +57,7 @@ export class LevelOne extends Scene {
 
 
 
+
         this.addPlatforms()
     }
 

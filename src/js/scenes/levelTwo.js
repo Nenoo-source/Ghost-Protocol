@@ -57,6 +57,7 @@ export class LevelTwo extends Scene {
         this.ui = new UI()
         this.add(this.ui)
 
+
         this.button = new Button()
         this.add(this.button)
 
