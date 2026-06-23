@@ -14,6 +14,7 @@ const SUPER_JUMP_COOLDOWN = 3000         // cooldown in ms
 
 export function setupSuperJump(player) {
     player.superJumpCooldownRemaining = 0
+   
 }
 
 export function updateSuperJump(player, engine, delta) {

@@ -137,6 +137,10 @@ export class LevelTwo extends Scene {
             })
         }
     }
+
+    onDeactivate(engine){
+        Resources.Middiffmusic1.stop()
+    }
 }
 
 
