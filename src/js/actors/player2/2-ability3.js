@@ -2,8 +2,6 @@ import { Keys } from "excalibur"
 import { Resources } from "../../resources.js"
 
 // Ability 3: Block (key 9)
-// Tap 9 = switch block type
-// Hold 9 = block with selected block type
 
 const BLOCK_TYPES_COUNT = 4
 
