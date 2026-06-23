@@ -1,7 +1,7 @@
 import { Sprite, Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Resources } from "../../resources"
 
-const TransparentCooldown = 10000
+const TransparentCooldown = 20000
 let playerStatusTransparent
 export function setupTransparent(player){
     player.transparentCooldownStat = 0
