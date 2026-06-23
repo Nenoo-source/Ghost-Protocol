@@ -24,18 +24,15 @@ export class Cable extends Actor {
             }
         });
 
-        // --- WALK ANIMATIE (oude API) ---
         const walkAnim = Animation.fromSpriteSheet(
             walkSheet,
-            [0, 1, 2, 3], // frames
-            150                       // frameDuration
+            [0, 1, 2, 3],
+            150
         );
         walkAnim.loop = true;
 
-        // Animatie activeren
         this.graphics.use(walkAnim);
 
-        // --- BASIS INSTELLINGEN ---
         this.scale = new Vector(1.5, 1.5);
         this.pos = new Vector(800, 560);
 
@@ -48,21 +45,18 @@ export class Cable extends Actor {
             repeatCtx.moveBy(300, 0, 100);
             repeatCtx.moveBy(-300, 0, 100);
         });
-
-        this._shootTimer = 0;
     }
 
-    onCollisionStart(event) {
-        const other = event.other;
+    onCollisionStart(event, other) {
 
-        if (other instanceof Player1) {
+        if (other.owner instanceof Player1) {
             Resources.Damagesound.play();
             this.scene.pb.safety -= 10;
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
             this.scene.p1.pos = new Vector(100, 540);
         }
 
-        if (other instanceof Player2) {
+        if (other.owner instanceof Player2) {
             Resources.Damagesound.play();
             this.scene.pb.safety -= 10;
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
