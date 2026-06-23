@@ -53,6 +53,7 @@ export class Player1 extends Player {
         }
         if (this.cooldown1Count >= 60) {
             this.cooldown1 = false
+            this.scene.ui.attackIcon.graphics.opacity = 1
         }
 
         if (!this.cooldown1) {

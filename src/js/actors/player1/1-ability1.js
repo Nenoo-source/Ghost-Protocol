@@ -16,10 +16,13 @@ export class ThreatScanner extends Actor {
     }
 
     onInitialize(engine) {
-        this.scale = new Vector(0.05, 0.2)
+        this.scale = new Vector(0.05, 0.07)
         this.graphics.use(Resources.Projectile.toSprite())
         this.pos = new Vector(this.posX + (40 * this.side), this.posY)
-        this.vel = new Vector(600 * this.side, 0)
+        this.vel = new Vector(700 * this.side, 0)
+        if (this.side > 0) {
+            this.graphics.flipHorizontal = true
+        }
     }
 
     onCollisionStart(event, other) {

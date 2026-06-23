@@ -57,12 +57,12 @@ export class UI extends ScreenElement {
         const attackSprite = Resources.AttackUI.toSprite();
         attackSprite.scale = new Vector(0.08, 0.08);
 
-        const attackIcon = new ScreenElement({
+        this.attackIcon = new ScreenElement({
             x: 70,
             y: engine.drawHeight - 80,
         });
-        attackIcon.graphics.use(attackSprite);
-        this.addChild(attackIcon);
+        this.attackIcon.graphics.use(attackSprite);
+        this.addChild(this.attackIcon);
 
         const warpSprite = Resources.WarpUI.toSprite();
         warpSprite.scale = new Vector(0.15, 0.15);
@@ -85,5 +85,13 @@ export class UI extends ScreenElement {
         superJumpIcon.graphics.use(superJumpSprite);
         this.addChild(superJumpIcon);
 
+    }
+
+    onPreUpdate() {
+        if (this.scene.p1.cooldown1) {
+            this.attackIcon.graphics.opacity = 0.4
+        } else {
+            this.attackIcon.graphics.opacity = 1
+        }
     }
 }
