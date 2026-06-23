@@ -84,6 +84,9 @@ export class LevelOne extends Scene {
             this.wentToLevelTwo = true
 
             engine.goToScene("LevelTwo", {
+                sceneActivationData: {
+                    safety: this.pb.safety
+                },
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
