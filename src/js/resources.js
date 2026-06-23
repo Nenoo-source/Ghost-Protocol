@@ -33,8 +33,14 @@ const Resources = {
     Invisibility: new Sound('sounds/Invisibility.mp3'),
     Coincollect: new Sound('sounds/Coincollect.mp3'),
     SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
+<<<<<<< Updated upstream
     Laser: new ImageSource('images/Laser.png'),
     Button: new ImageSource('/images/button.png')
+=======
+    Laser: new ImageSource('/images/Laser.png'),
+    Button: new ImageSource('/images/Button.png'),
+    Block_UI: new ImageSource('/images/block_ui.png')
+>>>>>>> Stashed changes
 }
 
 
