@@ -9,7 +9,7 @@ import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
 import { Player } from "../actors/playerBase.js"
-import { UI } from "../UI.js"
+import { UI } from "../ui.js"
 import { Cable } from "../actors/enemytwo.js"
 import { Laser } from "../actors/laser.js"
 import { Button } from "../actors/button.js"
@@ -29,6 +29,7 @@ export class LevelTwo extends Scene {
         background.scale = new Vector(0.85, 0.8)
         Resources.Middiffmusic1.loop = true;
         Resources.Middiffmusic1.play()
+        this.wentToBossArena = false
 
         //playerBase
         this.pb = new Player()
@@ -56,6 +57,7 @@ export class LevelTwo extends Scene {
         this.ui = new UI()
         this.add(this.ui)
 
+
         this.button = new Button(1200,50)
         this.add(this.button)
 
@@ -63,6 +65,12 @@ export class LevelTwo extends Scene {
         this.addLasers()
     }
 
+    onActivate(context) {
+        const safetyFromLevelOne = context.data.safety
+
+        this.pb.safety = safetyFromLevelOne
+        this.ui.safetybar.scale = new Vector(this.pb.safety / 50, 1)
+    }
 
     addPlatforms() {
         // platforms
@@ -102,9 +110,20 @@ export class LevelTwo extends Scene {
     }
 
     onPreUpdate(engine) {
+        if (this.c.coinCollected === true && !this.wentToBossArena) {
+            this.wentToBossArena = true
+
+            engine.goToScene("BossArena", {
+                sceneActivationData: {
+                    safety: this.pb.safety
+                },
+                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
+            })
+        }
+
         if (this.pb.safety <= 0) {
             this.pb.safety = 50
-            this.ui.safetybar.scale = new Vector(this.pb.safety / 50, 1)
             engine.goToScene("GameOver", {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })

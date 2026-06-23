@@ -9,7 +9,7 @@ import { Resources } from "../../resources.js"
 // kracht maar een kracht die met de frametijd meeschaalt. De super jump moet
 // dezelfde "* delta" opzet gebruiken, anders is hij (per ongeluk) veel zwakker
 // dan de normale jump in plaats van sterker.
-const SUPER_JUMP_MULTIPLIER = 250 * 1.5  // 2.5x sterker dan de normale jump (normaal = 350)
+const SUPER_JUMP_MULTIPLIER = 250 * 1.5  // 1.5x sterker dan de normale jump (normaal = 350)
 const SUPER_JUMP_COOLDOWN = 3000         // cooldown in ms
 
 export function setupSuperJump(player) {
@@ -17,7 +17,6 @@ export function setupSuperJump(player) {
 }
 
 export function updateSuperJump(player, engine, delta) {
-    // cooldown aftellen
     if (player.superJumpCooldownRemaining > 0) {
         player.superJumpCooldownRemaining -= delta
         if (player.superJumpCooldownRemaining < 0) {
@@ -25,9 +24,17 @@ export function updateSuperJump(player, engine, delta) {
         }
     }
 
+    // 7 arms the ability, doesn't jump yet
     if (engine.input.keyboard.wasPressed(Keys.Digit7) || engine.input.keyboard.wasPressed(Keys.Num7)) {
-        tryActivateSuperJump(player, delta)
+        if (player.superJumpCooldownRemaining <= 0) {
+            player.superJumpArmed = true
+        }
+    }
 
+    // I executes the super jump only if armed
+    if (engine.input.keyboard.wasPressed(Keys.I) && player.superJumpArmed) {
+        player.superJumpArmed = false
+        tryActivateSuperJump(player, delta)
     }
 }
 

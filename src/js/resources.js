@@ -13,6 +13,7 @@ const Resources = {
     GameOver: new ImageSource('images/gameover.png'),
     cablemonster: new ImageSource('images/cablemonster.png'),
     revenantWalk: new ImageSource("images/cablewalk1.png"),
+    tvWalk: new ImageSource("images/tvwalk.png"),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),
@@ -34,7 +35,10 @@ const Resources = {
     Coincollect: new Sound('sounds/Coincollect.mp3'),
     SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
     Laser: new ImageSource('images/Laser.png'),
-    Button: new ImageSource('/images/button.png')
+    Button: new ImageSource('/images/button.png'),
+    BlockUI: new ImageSource('images/block_ui.png'),
+    WarpUI: new ImageSource ('images/warp.png'),
+    superJumpUI: new ImageSource ('images/superJump.png')
 }
 
 

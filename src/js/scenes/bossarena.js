@@ -10,7 +10,7 @@ import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { UI } from "../ui.js"
 
-export class LevelOne extends Scene {
+export class BossArena extends Scene {
     onInitialize(engine, x, y, scX, scY) {
         const background = new Actor({
             x: engine.halfDrawWidth,
@@ -39,10 +39,6 @@ export class LevelOne extends Scene {
         this.p2.other = this.p1
         this.add(this.p2)
 
-        // TV enemy
-        const t = new Tv()
-        this.add(t)
-
         // ground
         const g = new Ground()
         this.add(g)
@@ -54,7 +50,6 @@ export class LevelOne extends Scene {
         // ui
         this.ui = new UI()
         this.add(this.ui)
-
 
 
 
@@ -80,17 +75,6 @@ export class LevelOne extends Scene {
 
 
     onPreUpdate(engine) {
-        if (this.c.coinCollected === true && !this.wentToLevelTwo) {
-            this.wentToLevelTwo = true
-
-            engine.goToScene("LevelTwo", {
-                sceneActivationData: {
-                    safety: this.pb.safety
-                },
-                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
-                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
-            })
-        }
         if (this.pb.safety <= 0) {
             this.pb.safety = 50
             engine.goToScene("GameOver", {

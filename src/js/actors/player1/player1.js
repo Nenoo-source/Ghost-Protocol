@@ -23,15 +23,23 @@ export class Player1 extends Player {
         this.graphics.use(Resources.player1.toSprite())
         this.pos = new Vector(this.x, this.y)
 
-
-
         this.side = 1
+        this.cooldown1Count = 0
+        this.cooldown1 = false
     }
 
     onPostUpdate(engine, delta) {
-        if (engine.input.keyboard.wasPressed(Keys.Digit1)) {
-            this.attackAbility()
+        if (this.cooldown1) {
+            this.cooldown1Count++
+        }
+        if (this.cooldown1Count >= 60) {
+            this.cooldown1 = false
+        }
 
+        if (!this.cooldown1) {
+            if (engine.input.keyboard.wasPressed(Keys.Digit1)) {
+                this.attackAbility()
+            }
         }
     }
 
@@ -44,5 +52,7 @@ export class Player1 extends Player {
         let shot = new ThreatScanner(this.pos.x, this.pos.y, this.side)
         this.scene.add(shot)
         Resources.Lasergun1.play()
+        this.cooldown1 = true
+        this.cooldown1Count = 0
     }
 }
