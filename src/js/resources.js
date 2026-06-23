@@ -35,7 +35,9 @@ const Resources = {
     SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
     Laser: new ImageSource('images/Laser.png'),
     Button: new ImageSource('/images/button.png'),
-    BlockUI: new ImageSource('images/block_ui.png')
+    BlockUI: new ImageSource('images/block_ui.png'),
+    WarpUI: new ImageSource ('images/warp.png'),
+    superJumpUI: new ImageSource ('images/warp.png')
 }
 
 
