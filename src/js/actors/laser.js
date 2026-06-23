@@ -1,11 +1,13 @@
 import { CollisionType, Actor, Vector } from 'excalibur'
 import { Resources } from '../resources.js'
+import { Player1 } from './player1/player1.js'
+import { Player2 } from './player2/player2.js'
 
 export class Laser extends Actor {
 
     constructor(x1, y1, scX1 = 1, scY1 = 1) {
         super({
-            width: Resources.Laser.width,
+            width: 5,
             height: Resources.Laser.height
         })
         this.posX = x1
@@ -15,9 +17,26 @@ export class Laser extends Actor {
     }
 
     onInitialize(engine) {
-        this.body.collisionType = CollisionType.Fixed
         this.graphics.use(Resources.Laser.toSprite())
         this.pos = new Vector(this.posX, this.posY)
         this.scale = new Vector(this.scalex1, this.scaley2)
     }
+
+    onCollisionStart(event, other) {
+            if (other.owner instanceof Player1) {
+                if(other.owner.invisStatus === true){
+                    return
+                }
+                Resources.Damagesound.play()
+                this.scene.pb.safety -= 10
+                this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+                this.scene.p1.pos = new Vector(100, 540)
+            }
+            if (other.owner instanceof Player2) {
+                Resources.Damagesound.play()
+                this.scene.pb.safety -= 10
+                this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+                this.scene.p2.pos = new Vector(200, 540)
+            }
+        }
 }
