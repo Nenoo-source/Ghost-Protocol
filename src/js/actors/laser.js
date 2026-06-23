@@ -14,7 +14,11 @@ export class Laser extends Actor {
         this.posY = y1
         this.scalex1 = scX1
         this.scaley2 = scY1
+<<<<<<< Updated upstream
 
+=======
+        
+>>>>>>> Stashed changes
     }
 
     onInitialize(engine) {

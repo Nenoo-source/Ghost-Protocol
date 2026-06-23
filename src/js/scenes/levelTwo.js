@@ -30,6 +30,7 @@ export class LevelTwo extends Scene {
         Resources.Middiffmusic1.loop = true;
         Resources.Middiffmusic1.play()
         this.wentToBossArena = false
+        this.isActive = false
 
         this.button = new Button(
             this.posX = 1200,
@@ -136,6 +137,7 @@ export class LevelTwo extends Scene {
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
         }
+
     }
 
     onDeactivate(engine){

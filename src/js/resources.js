@@ -38,7 +38,11 @@ const Resources = {
     SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
     Laser: new ImageSource('images/Laser.png'),
     LaserOff: new ImageSource('images/LaserOff.png'),
+<<<<<<< Updated upstream
     Button: new ImageSource('/images/button.png'),
+=======
+    Button: new ImageSource('images/button.png'),
+>>>>>>> Stashed changes
     BlockUI: new ImageSource('images/block_ui.png'),
     WarpUI: new ImageSource('images/warp.png'),
     superJumpUI: new ImageSource('images/superJump.png'),
