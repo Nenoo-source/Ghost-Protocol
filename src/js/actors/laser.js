@@ -15,7 +15,6 @@ export class Laser extends Actor {
     }
 
     onInitialize(engine) {
-        this.body.collisionType = CollisionType.Fixed
         this.graphics.use(Resources.Laser.toSprite())
         this.pos = new Vector(this.posX, this.posY)
         this.scale = new Vector(this.scalex1, this.scaley2)

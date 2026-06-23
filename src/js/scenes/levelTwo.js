@@ -31,6 +31,13 @@ export class LevelTwo extends Scene {
         Resources.Middiffmusic1.play()
         this.wentToBossArena = false
 
+        this.button = new Button(
+            this.posX = 1200,
+            this.posY = 100,
+            this.scalex2 = 0.09,
+            this.scaley3 = 0.09,)
+        this.add(this.button)
+
         //playerBase
         this.pb = new Player()
         this.add(this.pb)
@@ -58,8 +65,7 @@ export class LevelTwo extends Scene {
         this.add(this.ui)
 
 
-        this.button = new Button(1200,50)
-        this.add(this.button)
+
 
         this.addPlatforms()
         this.addLasers()
@@ -91,7 +97,7 @@ export class LevelTwo extends Scene {
     addLasers() {
         let positions = [
             //rechts onder
-            { "x1": 1200, "y1": 500, "scX1": 0.2, "scY1": 0.300  },
+            { "x1": 1200, "y1": 500, "scX1": 0.2, "scY1": 0.300 },
             { "x1": 1180, "y1": 500, "scX1": 0.2, "scY1": 0.300 },
             { "x1": 1160, "y1": 500, "scX1": 0.2, "scY1": 0.300 },
             // linksboven
@@ -101,8 +107,8 @@ export class LevelTwo extends Scene {
             //rechts boven
             { "x1": 1100, "y1": 80, "scX1": 0.2, "scY1": 0.388 },
             { "x1": 1120, "y1": 80, "scX1": 0.2, "scY1": 0.388 },
-            { "x1": 1140, "y1": 80, "scX1": 0.2, "scY1": 0.388 },
-            { "x1": 1160, "y1": 80, "scX1": 0.2, "scY1": 0.388 },
+            { "x1": 1060, "y1": 80, "scX1": 0.2, "scY1": 0.388 },
+            { "x1": 1080, "y1": 80, "scX1": 0.2, "scY1": 0.388 },
         ]
         for (let pos of positions) {
             this.add(new Laser(pos.x1, pos.y1, pos.scX1, pos.scY1))
