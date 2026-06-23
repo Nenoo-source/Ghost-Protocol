@@ -11,6 +11,8 @@ import { GameOver } from "./gameOver.js"
 import { Player } from "../actors/playerBase.js"
 import { UI } from "../ui.js"
 import { Cable } from "../actors/enemytwo.js"
+import {Laser} from "../actors/Laser.js"
+import {Button} from "../actors/button.js"
 
 
 export class LevelTwo extends Scene {
@@ -54,7 +56,11 @@ export class LevelTwo extends Scene {
         this.ui = new UI()
         this.add(this.ui)
 
+        this.laser = new Laser()
+        this.add(this.laser)
 
+        this.button = new Button()
+        this.add(this.button)
 
         this.addPlatforms()
     }
@@ -68,11 +74,23 @@ export class LevelTwo extends Scene {
             { "x": 800, "y": 300, "scX": 0.5, "scY": 0.5 },
             { "x": 1200, "y": 200, "scX": 2, "scY": 0.5 },
             { "x": 100, "y": 200, "scX": 1, "scY": 0.5 },
-
-
         ]
         for (let pos of positions) {
             this.add(new Platform(pos.x, pos.y, pos.scX, pos.scY))
+        }
+    }
+
+        addLasers() {
+        // platforms
+        let positions = [
+            { "x1": 600, "y1": 500, "scX1": 0.5, "scY1": 0.5 },
+            { "x1": 400, "y1": 300, "scX1": 0.5, "scY1": 0.5 },
+            { "x1": 800, "y1": 300, "scX1": 0.5, "scY1": 0.5 },
+            { "x1": 1200, "y1": 200, "scX1": 2, "scY1": 0.5 },
+            { "x1": 100, "y1": 200, "scX1": 1, "scY1": 0.5 },
+        ] 
+        for (let pos of positions) {
+            this.add(new Platform(pos.x, pos.y, pos.scX1, pos.scY1))
         }
     }
 
