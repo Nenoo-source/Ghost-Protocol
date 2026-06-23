@@ -25,8 +25,8 @@ export class LevelTwo extends Scene {
         background.graphics.use(Resources.Background.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
-        Resources.Ezdiffmusic1.loop = true;
-        Resources.Ezdiffmusic1.play()
+        Resources.Middiffmusic1.loop = true;
+        Resources.Middiffmusic1.play()
 
         //playerBase
         this.pb = new Player()

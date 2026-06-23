@@ -1,6 +1,8 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 import { Laser } from './actors/laser'
 
+
+
 // voeg hier jouw eigen resources toe
 const Resources = {
     Background: new ImageSource('images/background.png'),
@@ -13,6 +15,7 @@ const Resources = {
     Coin: new ImageSource('images/Coin.png'),
     GameOver: new ImageSource('images/gameover.png'),
     cablemonster: new ImageSource('images/cablemonster.png'),
+    revenantWalk: new ImageSource("images/cablewalk1.png"),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),
@@ -34,7 +37,7 @@ const Resources = {
     Coincollect: new Sound('sounds/Coincollect.mp3'),
     SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
     Laser: new ImageSource('/images/Laser.png'),
-    Button: new ImageSource('/images/Button.png')
+    Button: new ImageSource('/images/button.png')
 }
 
 

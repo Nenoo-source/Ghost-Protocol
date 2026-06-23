@@ -96,6 +96,10 @@ export class LevelOne extends Scene {
             })
         }
     }
+
+    onDeactivate(engine) {
+        Resources.Ezdiffmusic1.stop()
+    }
 }
 
 
