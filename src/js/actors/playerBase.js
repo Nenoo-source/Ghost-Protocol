@@ -16,7 +16,7 @@ export class Player extends Actor {
 
         this.safety = 50
         this.movementSpeed = 300
-    }
+        }
 
     onPreUpdate(engine, delta) {
 
@@ -58,6 +58,7 @@ export class Player extends Actor {
         if (this.safety >= 100) {
             this.safety = 100
         }
+        this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
     }
 
     onCollisionStart(self, other, side, contact) {
