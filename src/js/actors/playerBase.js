@@ -54,6 +54,12 @@ export class Player extends Actor {
         this.vel = new Vector(this.xspeed, this.vel.y)
     }
 
+    onPostUpdate() {
+        if (this.safety >= 100) {
+            this.safety = 100
+        }
+    }
+
     onCollisionStart(self, other, side, contact) {
         if ((other.owner instanceof Ground || other.owner instanceof Platform) && side === Side.Bottom) {
             this.grounded = true
