@@ -27,7 +27,6 @@ export function updateSuperJump(player, engine, delta) {
 
     if (engine.input.keyboard.wasPressed(Keys.Digit7) || engine.input.keyboard.wasPressed(Keys.Num7)) {
         tryActivateSuperJump(player, delta)
-
     }
 }
 

@@ -21,7 +21,7 @@ export class UI extends ScreenElement {
         this.addChild(this.outline)
 
         
-        const blockSprite = Resources.Block_UI.toSprite()
+        const blockSprite = Resources.BlockUI.toSprite()
         this.graphics.use(blockSprite)
         this.pos = new Vector(engine.drawWidth + 80, engine.drawHeight + 80)
     }

@@ -8,8 +8,7 @@ import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
-import { UI } from "../scenes/ui.js"
-
+import { UI } from "../ui.js"
 
 export class LevelOne extends Scene {
     onInitialize(engine, x, y, scX, scY) {
