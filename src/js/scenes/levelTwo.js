@@ -29,6 +29,7 @@ export class LevelTwo extends Scene {
         background.scale = new Vector(0.85, 0.8)
         Resources.Middiffmusic1.loop = true;
         Resources.Middiffmusic1.play()
+        this.wentToBossArena = false
 
         //playerBase
         this.pb = new Player()
@@ -98,6 +99,18 @@ export class LevelTwo extends Scene {
     }
 
     onPreUpdate(engine) {
+        if (this.c.coinCollected === true && !this.wentToBossArena) {
+            this.wentToBossArena = true
+
+            engine.goToScene("BossArena", {
+                sceneActivationData: {
+                    safety: this.pb.safety
+                },
+                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
+            })
+        }
+
         if (this.pb.safety <= 0) {
             this.pb.safety = 50
             engine.goToScene("GameOver", {

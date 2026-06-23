@@ -45,7 +45,6 @@ export class StartScene extends Scene {
     }
 
     onPreUpdate(engine) {
-
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
             engine.goToScene("game", {
                 sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
