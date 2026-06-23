@@ -19,7 +19,7 @@ export class BossArena extends Scene {
             height: engine.drawHeight,
             z: -1,
         })
-        background.graphics.use(Resources.Background.toSprite())
+        background.graphics.use(Resources.BossBackground.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
         Resources.Ezdiffmusic1.loop = true;
