@@ -74,6 +74,6 @@ export class Cable extends Actor {
     }
 
     onPreUpdate(engine) {
-        if ()
+
     }
 }
