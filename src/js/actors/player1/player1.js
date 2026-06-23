@@ -23,6 +23,8 @@ export class Player1 extends Player {
         this.graphics.use(Resources.player1.toSprite())
         this.pos = new Vector(this.x, this.y)
 
+
+
         this.side = 1
     }
 

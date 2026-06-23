@@ -14,9 +14,6 @@ export class Cable extends Actor {
     }
 
     onInitialize(engine) {
-        // Debug check
-        console.log("Loaded walk sheet:", Resources.revenantWalk);
-        // --- WALK SPRITE SHEET ---
         const walkSheet = SpriteSheet.fromImageSource({
             image: Resources.revenantWalk,
             grid: {
