@@ -74,6 +74,12 @@ export class Cable extends Actor {
     }
 
     onPreUpdate(engine) {
+        if (this.vel.x > 0) {
+            this.graphics.flipHorizontal = false;
+        }
 
+        if (this.vel.x < 0) {
+            this.graphics.flipHorizontal = true;
+        }
     }
 }
