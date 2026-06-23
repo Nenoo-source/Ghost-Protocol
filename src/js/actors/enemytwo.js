@@ -40,7 +40,6 @@ export class Cable extends Actor {
         this.body.collisionType = CollisionType.Active;
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
 
-        // --- BEWEGING ---
         this.actions.repeat((repeatCtx) => {
             repeatCtx.moveBy(300, 0, 100);
             repeatCtx.moveBy(-300, 0, 100);
