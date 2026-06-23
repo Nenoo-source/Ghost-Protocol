@@ -9,6 +9,7 @@ import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { UI } from "../ui.js"
+import { Ghost } from "../actors/ghost.js"
 
 export class BossArena extends Scene {
     onInitialize(engine, x, y, scX, scY) {
@@ -48,6 +49,9 @@ export class BossArena extends Scene {
         this.ui = new UI()
         this.add(this.ui)
 
+        //ghost boss
+        this.gh = new Ghost()
+        this.add(this.gh)
 
 
         this.addPlatforms()
