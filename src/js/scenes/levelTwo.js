@@ -9,7 +9,7 @@ import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
 import { Player } from "../actors/playerBase.js"
-import { UI } from "../ui.js"
+import { UI } from "../UI.js"
 import { Cable } from "../actors/enemytwo.js"
 
 
