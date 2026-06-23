@@ -33,7 +33,7 @@ export class LevelTwo extends Scene {
 
         this.button = new Button(
             this.posX = 1200,
-            this.posY = 100,
+            this.posY = 130,
             this.scalex2 = 0.09,
             this.scaley3 = 0.09,)
         this.add(this.button)

@@ -14,6 +14,7 @@ export class Laser extends Actor {
         this.posY = y1
         this.scalex1 = scX1
         this.scaley2 = scY1
+
     }
 
     onInitialize(engine) {
@@ -22,21 +23,34 @@ export class Laser extends Actor {
         this.scale = new Vector(this.scalex1, this.scaley2)
     }
 
-    onCollisionStart(event, other) {
-            if (other.owner instanceof Player1) {
-                if(other.owner.invisStatus === true){
-                    return
-                }
-                Resources.Damagesound.play()
-                this.scene.pb.safety -= 10
-                this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
-                this.scene.p1.pos = new Vector(100, 540)
-            }
-            if (other.owner instanceof Player2) {
-                Resources.Damagesound.play()
-                this.scene.pb.safety -= 10
-                this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
-                this.scene.p2.pos = new Vector(200, 540)
-            }
+    onPreUpdate(engine) {
+        if (this.scene.button.isActive) {
+            this.graphics.use(Resources.LaserOff.toSprite())
+            this.scale = new Vector(this.scalex1 * 1.2, this.scaley2 * 1.2)
+        } else {
+            this.graphics.use(Resources.Laser.toSprite())
+            this.scale = new Vector(this.scalex1, this.scaley2)
         }
+    }
+
+    onCollisionStart(event, other) {
+        if (this.scene.button.isActive) {
+            return
+        }
+        if (other.owner instanceof Player1) {
+            if (other.owner.invisStatus === true) {
+                return
+            }
+            Resources.Damagesound.play()
+            this.scene.pb.safety -= 10
+            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+            this.scene.p1.pos = new Vector(100, 540)
+        }
+        if (other.owner instanceof Player2) {
+            Resources.Damagesound.play()
+            this.scene.pb.safety -= 10
+            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+            this.scene.p2.pos = new Vector(200, 540)
+        }
+    }
 }

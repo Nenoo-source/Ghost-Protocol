@@ -1,6 +1,6 @@
 import { CollisionType, Actor, Vector } from 'excalibur'
 import { Resources } from '../resources.js'
-
+import { ThreatScanner } from './player1/1-ability1.js'
 export class Button extends Actor {
 
     constructor(x2, y2, scX2 = 1, scY2 = 1) {
@@ -15,9 +15,14 @@ export class Button extends Actor {
     }
 
     onInitialize(engine) {
-        
+    
         this.graphics.use(Resources.Button.toSprite())
         this.pos = new Vector(this.posX, this.posY)
         this.scale = new Vector(this.scalex2, this.scaley3)
     }
+ onCollisionStart(event, other) {
+        if (other.owner instanceof ThreatScanner) {
+            this.isActive = true
+        }
+}
 }
