@@ -5,7 +5,7 @@ export class Laser extends Actor {
 
     constructor(x1, y1, scX1 = 1, scY1 = 1) {
         super({
-            width: Resources.Laser.width,
+            width: 5,
             height: Resources.Laser.height
         })
         this.posX = x1
