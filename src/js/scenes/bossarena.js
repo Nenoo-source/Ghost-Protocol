@@ -43,9 +43,6 @@ export class BossArena extends Scene {
         const g = new Ground()
         this.add(g)
 
-        // coin
-        this.c = new Coin(100, 450)
-        this.add(this.c)
 
         // ui
         this.ui = new UI()
@@ -61,10 +58,8 @@ export class BossArena extends Scene {
     addPlatforms() {
         // platforms
         let positions = [
-            { "x": 700, "y": 250, "scX": 0.8, "scY": 0.5 },
-            { "x": 900, "y": 400, "scX": 0.5, "scY": 0.5 },
-            { "x": 400, "y": 200, "scX": 0.5, "scY": 0.5 },
-            { "x": 100, "y": 140, "scX": 0.5, "scY": 0.5 },
+            // { "x": 700, "y": 250, "scX": 0.8, "scY": 0.5 },
+
 
 
         ]

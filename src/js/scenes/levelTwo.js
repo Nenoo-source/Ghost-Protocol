@@ -51,7 +51,8 @@ export class LevelTwo extends Scene {
         const g = new Ground()
         this.add(g)
 
-        this.c = new Coin(50, 140)
+        //this.c = new Coin(50, 140)
+        this.c = new Coin(100, 450)
         this.add(this.c)
 
         this.ui = new UI()
