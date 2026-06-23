@@ -23,15 +23,29 @@ export class Cookie extends Actor {
     onInitialize(engine) {
         this.graphics.use(Resources.cookie.toSprite())
         this.scale = new Vector(0.08, 0.08)
+
+        // Zoek de spelers
+        const p1 = engine.currentScene.p1
+        const p2 = engine.currentScene.p2
+
+        // Bereken afstand tot beide spelers
+        const distToP1 = this.pos.distance(p1.pos)
+        const distToP2 = this.pos.distance(p2.pos)
+
+        // Kies de dichtstbijzijnde speler
+        const target = distToP1 < distToP2 ? p1 : p2
+
+        // Richtingvector naar de speler
+        const direction = target.pos.sub(this.pos).normalize()
+
+        // Snelheid instellen richting speler
+        const speed = 300
+        this.vel = direction.scale(speed)
     }
+
     onCollisionStart(event, other) {
-
-        // Player2 blocks Cookie with block type 1
         if (other.owner instanceof Player2) {
-
             if (isCorrectBlock(other.owner, 1)) {
-
-                // push cookie away
                 this.vel.x *= -2
                 this.vel.y = -200
                 Resources.Shielddeflect.play()
@@ -46,7 +60,6 @@ export class Cookie extends Actor {
             return
         }
 
-        // Player1 cannot block cookies
         if (other.owner instanceof Player1) {
             this.kill()
             Resources.Damagesound.play()
@@ -60,6 +73,7 @@ export class Cookie extends Actor {
         super.onPostUpdate(engine, delta)
         this.lifetime += delta
         this.rotation -= 0.05
+
         if (Math.random() < 0.1) {
             this.graphics.opacity = 0.4 + Math.random() * 0.6
         } else {
@@ -71,16 +85,13 @@ export class Cookie extends Actor {
             y: this.pos.y,
             width: 8,
             height: 8,
-            color: Color.fromRGB(0, 200, 255) // neon blauw
+            color: Color.fromRGB(0, 200, 255)
         })
 
         trail.graphics.opacity = 0.8
-        trail.z = -0.5 // achter de cookie
+        trail.z = -0.5
 
-        // Deeltje toevoegen
         engine.currentScene.add(trail)
-
-        // Deeltje langzaam laten verdwijnen
         trail.actions.fade(0, 200).die()
 
         if (this.lifetime >= 4000) {
@@ -88,4 +99,6 @@ export class Cookie extends Actor {
         }
     }
 }
+
+
 
