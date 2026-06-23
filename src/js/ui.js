@@ -19,5 +19,10 @@ export class UI extends ScreenElement {
 
         this.outline = new SafetyOutline(this.topMidX, this.topMidY + 15)
         this.addChild(this.outline)
+
+        
+        const blockSprite = Resources.Block_UI.toSprite()
+        this.graphics.use(blockSprite)
+        this.pos = new Vector(engine.drawWidth + 80, engine.drawHeight + 80)
     }
-}
+}   
