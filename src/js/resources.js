@@ -38,7 +38,8 @@ const Resources = {
     Button: new ImageSource('/images/button.png'),
     BlockUI: new ImageSource('images/block_ui.png'),
     WarpUI: new ImageSource ('images/warp.png'),
-    superJumpUI: new ImageSource ('images/superJump.png')
+    superJumpUI: new ImageSource('images/superJump.png'),
+    AttackUI: new ImageSource('images/attack_ui.png')
 }
 
 

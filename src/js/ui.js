@@ -53,6 +53,17 @@ export class UI extends ScreenElement {
         blockIcon.graphics.use(blockSprite);
         this.addChild(blockIcon);
 
+
+        const attackSprite = Resources.AttackUI.toSprite();
+        attackSprite.scale = new Vector(0.08, 0.08);
+
+        const attackIcon = new ScreenElement({
+            x: 70,
+            y: engine.drawHeight - 80,
+        });
+        attackIcon.graphics.use(attackSprite);
+        this.addChild(attackIcon);
+
         const warpSprite = Resources.WarpUI.toSprite();
         warpSprite.scale = new Vector(0.15, 0.15);
 
