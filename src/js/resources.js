@@ -37,7 +37,7 @@ const Resources = {
     Coincollect: new Sound('sounds/Coincollect.mp3'),
     SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
     Laser: new ImageSource('/images/Laser.png'),
-    Button: new ImageSource('/images/Button.png')
+    Button: new ImageSource('/images/button.png')
 }
 
 
