@@ -28,6 +28,7 @@ export class Button extends Actor {
     onCollisionStart(event, other) {
         if (other.owner instanceof ThreatScanner) {
             this.isButtonActive = true
+            Resources.ButtonPress.play()
         }
     }
 }
