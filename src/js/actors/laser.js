@@ -14,11 +14,7 @@ export class Laser extends Actor {
         this.posY = y1
         this.scalex1 = scX1
         this.scaley2 = scY1
-<<<<<<< Updated upstream
-
-=======
         
->>>>>>> Stashed changes
     }
 
     onInitialize(engine) {
@@ -28,7 +24,7 @@ export class Laser extends Actor {
     }
 
     onPreUpdate(engine) {
-        if (this.scene.button.isActive) {
+        if (this.scene.button.isButtonActive) {
             this.graphics.use(Resources.LaserOff.toSprite())
             this.scale = new Vector(this.scalex1 * 1.2, this.scaley2 * 1.2)
         } else {
@@ -38,7 +34,7 @@ export class Laser extends Actor {
     }
 
     onCollisionStart(event, other) {
-        if (this.scene.button.isActive) {
+        if (this.scene.button.isButtonActive) {
             return
         }
         if (other.owner instanceof Player1) {
