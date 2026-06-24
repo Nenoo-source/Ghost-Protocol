@@ -23,8 +23,8 @@ export class BossArena extends Scene {
         background.graphics.use(Resources.BossBackground.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
-        Resources.Ezdiffmusic1.loop = true;
-        Resources.Ezdiffmusic1.play()
+        Resources.Highdiffmusic1.loop = true;
+        Resources.Highdiffmusic1.play()
         this.wentToLevelTwo = false
 
         //playerBase
@@ -84,7 +84,7 @@ export class BossArena extends Scene {
     }
 
     onDeactivate(engine) {
-        Resources.Ezdiffmusic1.stop()
+        Resources.Highdiffmusic1.stop()
     }
 }
 
