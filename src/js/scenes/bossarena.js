@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } from "excalibur"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, CollisionType } from "excalibur"
 import { Resources } from "../resources.js"
 import { Player } from "../actors/playerBase.js"
 import { Player1 } from "../actors/player1/player1.js"
@@ -55,6 +55,26 @@ export class BossArena extends Scene {
 
 
         this.addPlatforms()
+
+        // linker border
+        const leftBorder = new Actor({
+            x: 0,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(leftBorder)
+
+        // rechter border
+        const rightBorder = new Actor({
+            x: engine.drawWidth,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(rightBorder)
     }
 
 

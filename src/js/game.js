@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode, SolverStrategy, CollisionType } from "excalibur"
+import { Actor, Engine, Vector, DisplayMode, SolverStrategy, CollisionType, Color } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { StartScene } from './scenes/start.js'
 import { LevelOne } from './scenes/levelOne.js'
@@ -33,30 +33,7 @@ export class Game extends Engine {
         this.addScene("BossArena", new BossArena())
 
 
-        this.on('sceneactivated', (evt) => {
-            const scene = evt.scene
 
-            // Linker muur
-            const leftBorder = new Actor({
-                x: -10,
-                y: this.drawHeight / 2,
-                width: 20,
-                height: this.drawHeight,
-                collisionType: CollisionType.Fixed
-            })
-
-            // Rechter muur
-            const rightBorder = new Actor({
-                x: this.drawWidth + 10,
-                y: this.drawHeight / 2,
-                width: 20,
-                height: this.drawHeight,
-                collisionType: CollisionType.Fixed
-            })
-
-            scene.add(leftBorder)
-            scene.add(rightBorder)
-        })
 
         this.goToScene("start")
     }

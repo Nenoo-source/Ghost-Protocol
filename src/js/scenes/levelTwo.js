@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } from "excalibur"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, CollisionType } from "excalibur"
 import { Resources } from "../resources.js"
 import { Player1 } from "../actors/player1/player1.js"
 import { Tv } from "../actors/enemyone.js"
@@ -71,6 +71,26 @@ export class LevelTwo extends Scene {
 
         this.addPlatforms()
         this.addLasers()
+
+        // linker border
+        const leftBorder = new Actor({
+            x: 0,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(leftBorder)
+
+        // rechter border
+        const rightBorder = new Actor({
+            x: engine.drawWidth,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(rightBorder)
     }
 
     onActivate(context) {
@@ -140,7 +160,7 @@ export class LevelTwo extends Scene {
 
     }
 
-    onDeactivate(engine){
+    onDeactivate(engine) {
         Resources.Middiffmusic1.stop()
     }
 }
