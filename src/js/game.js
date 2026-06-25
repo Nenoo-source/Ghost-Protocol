@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode, SolverStrategy } from "excalibur"
+import { Actor, Engine, Vector, DisplayMode, SolverStrategy, CollisionType, Color } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { StartScene } from './scenes/start.js'
 import { LevelOne } from './scenes/levelOne.js'
@@ -20,6 +20,7 @@ export class Game extends Engine {
                 gravity: new Vector(0, 800),
             }
         })
+
         this.start(ResourceLoader).then(() => this.startGame())
     }
 
@@ -30,9 +31,12 @@ export class Game extends Engine {
         this.addScene("LevelTwo", new LevelTwo())
         this.addScene("GameOver", new GameOver())
         this.addScene("BossArena", new BossArena())
+
+
+
+
         this.goToScene("start")
     }
-
 }
 
 new Game()

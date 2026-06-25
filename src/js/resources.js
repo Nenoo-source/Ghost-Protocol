@@ -38,12 +38,13 @@ const Resources = {
     SafetyOutline: new ImageSource('images/safetyBarOutline.png'),
     Laser: new ImageSource('images/Laser.png'),
     LaserOff: new ImageSource('images/LaserOff.png'),
-    Button: new ImageSource('/images/button.png'),
+    Button: new ImageSource('images/button.png'),
     BlockUI: new ImageSource('images/block_ui.png'),
     WarpUI: new ImageSource('images/warp.png'),
     superJumpUI: new ImageSource('images/superJump.png'),
     AttackUI: new ImageSource('images/attack_ui.png'),
-    GameOverMusic: new Sound('sounds/GameOverMusic.mp3')
+    GameOverMusic: new Sound('sounds/GameOverMusic.mp3'),
+    ButtonPress: new Sound('sounds/ButtonPress.mp3')
 }
 
 

@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } from "excalibur"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, CollisionType } from "excalibur"
 import { Resources } from "../resources.js"
 import { Player1 } from "../actors/player1/player1.js"
 import { Tv } from "../actors/enemyone.js"
@@ -30,10 +30,11 @@ export class LevelTwo extends Scene {
         Resources.Middiffmusic1.loop = true;
         Resources.Middiffmusic1.play()
         this.wentToBossArena = false
+        this.isActive = false
 
         this.button = new Button(
             this.posX = 1200,
-            this.posY = 100,
+            this.posY = 130,
             this.scalex2 = 0.09,
             this.scaley3 = 0.09,)
         this.add(this.button)
@@ -71,6 +72,26 @@ export class LevelTwo extends Scene {
         this.addPlatforms()
         this.addLasers()
         this.pb.grounded = true
+
+        // linker border
+        const leftBorder = new Actor({
+            x: 0,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(leftBorder)
+
+        // rechter border
+        const rightBorder = new Actor({
+            x: engine.drawWidth,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(rightBorder)
     }
 
     onActivate(context) {
@@ -137,9 +158,10 @@ export class LevelTwo extends Scene {
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
         }
+
     }
 
-    onDeactivate(engine){
+    onDeactivate(engine) {
         Resources.Middiffmusic1.stop()
     }
 }

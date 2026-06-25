@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector } from "excalibur"
+import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, CollisionType } from "excalibur"
 import { Resources } from "../resources.js"
 import { Player } from "../actors/playerBase.js"
 import { Player1 } from "../actors/player1/player1.js"
@@ -23,8 +23,8 @@ export class BossArena extends Scene {
         background.graphics.use(Resources.BossBackground.toSprite())
         this.add(background)
         background.scale = new Vector(0.85, 0.8)
-        Resources.Ezdiffmusic1.loop = true;
-        Resources.Ezdiffmusic1.play()
+        Resources.Highdiffmusic1.loop = true;
+        Resources.Highdiffmusic1.play()
         this.wentToLevelTwo = false
 
         //playerBase
@@ -55,6 +55,26 @@ export class BossArena extends Scene {
 
 
         this.addPlatforms()
+
+        // linker border
+        const leftBorder = new Actor({
+            x: 0,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(leftBorder)
+
+        // rechter border
+        const rightBorder = new Actor({
+            x: engine.drawWidth,
+            y: engine.halfDrawHeight,
+            width: 20,
+            height: engine.drawHeight,
+            collisionType: CollisionType.Fixed
+        })
+        this.add(rightBorder)
     }
 
 
@@ -84,7 +104,7 @@ export class BossArena extends Scene {
     }
 
     onDeactivate(engine) {
-        Resources.Ezdiffmusic1.stop()
+        Resources.Highdiffmusic1.stop()
     }
 }
 
