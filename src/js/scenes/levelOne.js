@@ -8,7 +8,9 @@ import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
-import { UI } from "../UI.js"
+import { Door } from '../actors/end.js'
+import { UI } from "../ui.js"
+
 
 export class LevelOne extends Scene {
     onInitialize(engine, x, y, scX, scY) {
@@ -26,6 +28,10 @@ export class LevelOne extends Scene {
         Resources.Ezdiffmusic1.play()
         this.wentToLevelTwo = false
 
+        // door
+        this.d = new Door(1200, 530)
+        this.add(this.d)
+
         //playerBase
         this.pb = new Player()
         this.add(this.pb)
@@ -40,7 +46,7 @@ export class LevelOne extends Scene {
         this.add(this.p2)
 
         // TV enemy
-        const t = new Tv()
+        const t = new Tv(800, 560)
         this.add(t)
 
         // ground
@@ -100,7 +106,7 @@ export class LevelOne extends Scene {
 
 
     onPreUpdate(engine) {
-        if (this.c.coinCollected === true && !this.wentToLevelTwo) {
+        if (this.c.coinCollected === true && !this.wentToLevelTwo && this.d.wentInDoor) {
             this.wentToLevelTwo = true
             this.pb.safety += 10
 

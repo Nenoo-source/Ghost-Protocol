@@ -5,7 +5,7 @@ import { Resources } from "../../resources"
 
 const WARP_COOLDOWN = 3000
 const WARP_OFFSET_X = 80
-const WARP_OFFSET_Y = 0
+const WARP_OFFSET_Y = -10
 
 export function setupWarp(player) {
     player.warpCooldownRemaining = 0

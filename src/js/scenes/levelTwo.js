@@ -9,10 +9,11 @@ import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { GameOver } from "./gameOver.js"
 import { Player } from "../actors/playerBase.js"
-import { UI } from "../UI.js"
+import { UI } from "../ui.js"
 import { Cable } from "../actors/enemytwo.js"
 import { Laser } from "../actors/laser.js"
 import { Button } from "../actors/button.js"
+import { Door } from '../actors/end.js'
 
 
 export class LevelTwo extends Scene {
@@ -39,6 +40,10 @@ export class LevelTwo extends Scene {
             this.scaley3 = 0.09,)
         this.add(this.button)
 
+        // door
+        this.d = new Door(1200, 530)
+        this.add(this.d)
+
         //playerBase
         this.pb = new Player()
         this.add(this.pb)
@@ -52,9 +57,14 @@ export class LevelTwo extends Scene {
         this.p2.other = this.p1
         this.add(this.p2)
 
-        // TV enemy
+        // Cable enemy
         this.ca = new Cable()
         this.add(this.ca)
+
+        // TV enemy
+        const t = new Tv(610, 80)
+        this.add(t)
+
         // ground
         const g = new Ground()
         this.add(g)
@@ -110,6 +120,7 @@ export class LevelTwo extends Scene {
             { "x": 1200, "y": 200, "scX": 2, "scY": 0.5 },
             { "x": 100, "y": 200, "scX": 1, "scY": 0.5 },
             { "x": 1220, "y": 418, "scX": 0.55, "scY": 0.300 },
+            { "x": 600, "y": 150, "scX": 1, "scY": 0.300 }
 
         ]
         for (let pos of positions) {
@@ -139,7 +150,7 @@ export class LevelTwo extends Scene {
     }
 
     onPreUpdate(engine) {
-        if (this.c.coinCollected === true && !this.wentToBossArena) {
+        if (this.c.coinCollected === true && !this.wentToBossArena && this.d.wentInDoor) {
             this.wentToBossArena = true
             this.pb.safety += 10
 
@@ -159,7 +170,6 @@ export class LevelTwo extends Scene {
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
         }
-
     }
 
     onDeactivate(engine) {

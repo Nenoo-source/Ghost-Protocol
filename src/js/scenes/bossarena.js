@@ -77,6 +77,12 @@ export class BossArena extends Scene {
         this.add(rightBorder)
     }
 
+    onActivate(context) {
+        const safetyFromLevelTwo = context.data.safety
+
+        this.pb.safety = safetyFromLevelTwo
+        this.ui.safetybar.scale = new Vector(this.pb.safety / 50, 1)
+    }
 
 
     addPlatforms() {

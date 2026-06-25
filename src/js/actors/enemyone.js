@@ -9,11 +9,13 @@ import { Cookie } from "./enemyabilities/enemyabilityone.js"
 export class Tv extends Actor {
     _shootTimer = 0
 
-    constructor() {
+    constructor(x, y) {
         super({
             width: Resources.tv.width,
             height: Resources.tv.height
         })
+        this.x = x
+        this.y = y
     }
 
     onInitialize(engine) {
@@ -21,7 +23,7 @@ export class Tv extends Actor {
 
         this.graphics.use(Resources.tv.toSprite())
         this.scale = new Vector(0.16, 0.16)
-        this.pos = new Vector(700, 560)
+        this.pos = new Vector(this.x, this.y)
 
         const walkSheet = SpriteSheet.fromImageSource({
             image: Resources.tvWalk,
@@ -47,8 +49,8 @@ export class Tv extends Actor {
         this.body.collisionType = CollisionType.Active
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation)
         this.actions.repeat((repeatCtx) => {
-            repeatCtx.moveBy(300, 0, 100)
-            repeatCtx.moveBy(-300, 0, 100)
+            repeatCtx.moveBy(100, 0, 100)
+            repeatCtx.moveBy(-100, 0, 100)
         },)
 
     }
