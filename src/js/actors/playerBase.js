@@ -21,6 +21,8 @@ export class Player extends Actor {
     onPreUpdate(engine, delta) {
         if (this.vel.y === 0) {
             this.grounded = true
+        } else {
+            this.grounded = false
         }
 
         if (engine.input.keyboard.wasPressed(Keys.W) && this.player === "player1") {

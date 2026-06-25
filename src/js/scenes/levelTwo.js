@@ -49,7 +49,7 @@ export class LevelTwo extends Scene {
         this.add(this.pb)
 
         //player 1
-        this.p1 = new Player1("player1", 100, 540)
+        this.p1 = new Player1("player1", 100, 540, "scene2")
         this.add(this.p1)
 
         //player 2
@@ -62,7 +62,7 @@ export class LevelTwo extends Scene {
         this.add(this.ca)
 
         // TV enemy
-        const t = new Tv(610, 80)
+        const t = new Tv(540, 95)
         this.add(t)
 
         // ground
