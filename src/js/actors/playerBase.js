@@ -56,6 +56,8 @@ export class Player extends Actor {
     }
 
     onPostUpdate() {
+        this.checkOnGround()
+
         if (this.safety >= 100) {
             this.safety = 100
         }
@@ -67,6 +69,7 @@ export class Player extends Actor {
             this.grounded = true
         }
     }
+
 
     onCollisionEnd(self, other) {
         if (other.owner instanceof Ground || other.owner instanceof Platform) {
