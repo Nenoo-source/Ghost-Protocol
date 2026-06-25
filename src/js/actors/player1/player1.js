@@ -17,7 +17,7 @@ export class Player1 extends Player {
         this.player = player
         this.x = x
         this.y = y
-        this.scene = scene
+        this.sceneName = scene
     }
 
     onInitialize(engine) {
@@ -29,10 +29,10 @@ export class Player1 extends Player {
 
         this.side = 1
         this.cooldown1Count = 0
-        if (this.scene === "scene1"){
-            this.cooldown1 = false
-        } else {
+        if (this.sceneName === "scene1") {
             this.cooldown1 = true
+        } else {
+            this.cooldown1 = false
         }
 
         this.cooldown2Count = 0
@@ -56,9 +56,8 @@ export class Player1 extends Player {
         if (this.cooldown1) {
             this.cooldown1Count++
         }
-        if (this.cooldown1Count >= 300 && this.scene === "scene2") {
+        if (this.cooldown1Count >= 300 && this.sceneName === "scene2") {
             this.cooldown1 = false
-            this.scene.ui.attackIcon.graphics.opacity = 1
         }
 
         if (!this.cooldown1) {
