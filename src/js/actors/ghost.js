@@ -27,9 +27,9 @@ export class Ghost extends Actor {
         this.body.collisionType = CollisionType.Active;
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
 
-        this.startX = 800;
-        this.moveRange = 200;
-        this.moveSpeed = 100;
+        this.startX = 850;
+        this.moveRange = 150;
+        this.moveSpeed = 70;
         this.vel = new Vector(this.moveSpeed, 0);
     }
 
