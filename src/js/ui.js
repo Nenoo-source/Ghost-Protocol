@@ -64,6 +64,16 @@ export class UI extends ScreenElement {
         this.attackIcon.graphics.use(attackSprite);
         this.addChild(this.attackIcon);
 
+        const incognitoSprite = Resources.IncognitoUI.toSprite();
+        incognitoSprite.scale = new Vector(0.085, 0.085);
+
+        this.incognitoIcon = new ScreenElement({
+            x: 150,
+            y: engine.drawHeight - 92,
+        });
+        this.incognitoIcon.graphics.use(incognitoSprite);
+        this.addChild(this.incognitoIcon);
+
         const warpSprite = Resources.WarpUI.toSprite();
         warpSprite.scale = new Vector(0.15, 0.15);
 
@@ -92,6 +102,12 @@ export class UI extends ScreenElement {
             this.attackIcon.graphics.opacity = 0.4
         } else {
             this.attackIcon.graphics.opacity = 1
+        }
+
+        if (this.scene.p1.cooldown2) {
+            this.incognitoIcon.graphics.opacity = 0.4
+        } else {
+            this.incognitoIcon.graphics.opacity = 1
         }
 
         if (this.scene.p2.superJumpCooldownRemaining > 0) {

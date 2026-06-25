@@ -141,6 +141,7 @@ export class LevelTwo extends Scene {
     onPreUpdate(engine) {
         if (this.c.coinCollected === true && !this.wentToBossArena) {
             this.wentToBossArena = true
+            this.pb.safety += 10
 
             engine.goToScene("BossArena", {
                 sceneActivationData: {
