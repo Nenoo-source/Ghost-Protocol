@@ -37,7 +37,7 @@ export class LevelOne extends Scene {
         this.add(this.pb)
 
         //player 1
-        this.p1 = new Player1("player1", 100, 540)
+        this.p1 = new Player1("player1", 100, 540, "scene1")
         this.add(this.p1)
 
         //player 2
@@ -54,15 +54,12 @@ export class LevelOne extends Scene {
         this.add(g)
 
         // coin
-        this.c = new Coin(100, 450)
+        this.c = new Coin(100, 60)
         this.add(this.c)
 
         // ui
         this.ui = new UI()
         this.add(this.ui)
-
-
-
 
         this.addPlatforms()
 

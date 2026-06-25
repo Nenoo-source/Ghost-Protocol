@@ -9,7 +9,7 @@ import { Laser } from "../laser.js"
 
 export class Player1 extends Player {
 
-    constructor(player, x, y) {
+    constructor(player, x, y, scene) {
         super({
             width: Resources.player1.width,
             height: Resources.player1.height
@@ -17,6 +17,7 @@ export class Player1 extends Player {
         this.player = player
         this.x = x
         this.y = y
+        this.sceneName = scene
     }
 
     onInitialize(engine) {
@@ -28,7 +29,11 @@ export class Player1 extends Player {
 
         this.side = 1
         this.cooldown1Count = 0
-        this.cooldown1 = false
+        if (this.sceneName === "scene1") {
+            this.cooldown1 = true
+        } else {
+            this.cooldown1 = false
+        }
 
         this.cooldown2Count = 0
         this.cooldown2 = false
@@ -51,9 +56,8 @@ export class Player1 extends Player {
         if (this.cooldown1) {
             this.cooldown1Count++
         }
-        if (this.cooldown1Count >= 300) {
+        if (this.cooldown1Count >= 300 && this.sceneName === "scene2") {
             this.cooldown1 = false
-            this.scene.ui.attackIcon.graphics.opacity = 1
         }
 
         if (!this.cooldown1) {
