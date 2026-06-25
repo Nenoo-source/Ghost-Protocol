@@ -16,7 +16,7 @@ export class Player extends Actor {
 
         this.safety = 50
         this.movementSpeed = 300
-        }
+    }
 
     onPreUpdate(engine, delta) {
 
@@ -29,7 +29,7 @@ export class Player extends Actor {
             if (this.grounded && !this.superJumpArmed) {  // ← add the check
                 this.body.applyLinearImpulse(new Vector(0, -250 * delta))
             }
-        
+
         }
 
         this.xspeed = 0

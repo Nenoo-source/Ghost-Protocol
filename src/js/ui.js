@@ -59,7 +59,7 @@ export class UI extends ScreenElement {
 
         this.attackIcon = new ScreenElement({
             x: 70,
-            y: engine.drawHeight - 80,
+            y: engine.drawHeight - 92,
         });
         this.attackIcon.graphics.use(attackSprite);
         this.addChild(this.attackIcon);

@@ -71,6 +71,7 @@ export class LevelTwo extends Scene {
 
         this.addPlatforms()
         this.addLasers()
+        this.pb.grounded = true
 
         // linker border
         const leftBorder = new Actor({
