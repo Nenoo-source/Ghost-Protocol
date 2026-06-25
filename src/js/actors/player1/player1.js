@@ -56,7 +56,7 @@ export class Player1 extends Player {
         if (this.cooldown1) {
             this.cooldown1Count++
         }
-        if (this.cooldown1Count >= 300 && this.sceneName === "scene2") {
+        if (this.cooldown1Count >= 300 && this.sceneName !== "scene1") {
             this.cooldown1 = false
         }
 
