@@ -19,6 +19,9 @@ export class Player extends Actor {
     }
 
     onPreUpdate(engine, delta) {
+        if (this.vel.y === 0) {
+            this.grounded = true
+        }
 
         if (engine.input.keyboard.wasPressed(Keys.W) && this.player === "player1") {
             if (this.grounded) {
@@ -53,6 +56,7 @@ export class Player extends Actor {
         }
 
         this.vel = new Vector(this.xspeed, this.vel.y)
+
     }
 
     onPostUpdate() {
@@ -62,11 +66,11 @@ export class Player extends Actor {
         this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
     }
 
-    onCollisionStart(self, other, side, contact) {
-        if ((other.owner instanceof Ground || other.owner instanceof Platform) && side === Side.Bottom) {
-            this.grounded = true
-        }
-    }
+    // onCollisionStart(self, other, side, contact) {
+    //     if ((other.owner instanceof Ground || other.owner instanceof Platform) && side === Side.Bottom) {
+    //         this.grounded = true
+    //     }
+    // }
 
 
     onCollisionEnd(self, other) {

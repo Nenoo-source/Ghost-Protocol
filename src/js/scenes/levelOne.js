@@ -46,7 +46,7 @@ export class LevelOne extends Scene {
         this.add(this.p2)
 
         // TV enemy
-        const t = new Tv()
+        const t = new Tv(800, 560)
         this.add(t)
 
         // ground

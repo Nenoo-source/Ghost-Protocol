@@ -57,9 +57,14 @@ export class LevelTwo extends Scene {
         this.p2.other = this.p1
         this.add(this.p2)
 
-        // TV enemy
+        // Cable enemy
         this.ca = new Cable()
         this.add(this.ca)
+
+        // TV enemy
+        const t = new Tv(610, 80)
+        this.add(t)
+
         // ground
         const g = new Ground()
         this.add(g)
@@ -115,6 +120,7 @@ export class LevelTwo extends Scene {
             { "x": 1200, "y": 200, "scX": 2, "scY": 0.5 },
             { "x": 100, "y": 200, "scX": 1, "scY": 0.5 },
             { "x": 1220, "y": 418, "scX": 0.55, "scY": 0.300 },
+            { "x": 600, "y": 150, "scX": 1, "scY": 0.300 }
 
         ]
         for (let pos of positions) {
@@ -164,7 +170,6 @@ export class LevelTwo extends Scene {
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
         }
-
     }
 
     onDeactivate(engine) {
