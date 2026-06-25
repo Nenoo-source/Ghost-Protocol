@@ -26,7 +26,7 @@ export class Player extends Actor {
         if (keyboard.wasPressed(Keys.W) && this.player === "player1") {
             if (this.grounded) {
                 this.grounded = false
-                this.vel = new Vector(this.vel.x, -800)
+                this.vel = new Vector(this.vel.x, -400)
             }
         }
 
@@ -34,7 +34,7 @@ export class Player extends Actor {
         if (keyboard.wasPressed(Keys.I) && this.player === "player2") {
             if (this.grounded && !this.superJumpArmed) {
                 this.grounded = false
-                this.vel = new Vector(this.vel.x, -800)
+                this.vel = new Vector(this.vel.x, -400)
             }
         }
 
