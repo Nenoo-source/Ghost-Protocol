@@ -51,7 +51,7 @@ export class Player1 extends Player {
         if (this.cooldown1) {
             this.cooldown1Count++
         }
-        if (this.cooldown1Count >= 60) {
+        if (this.cooldown1Count >= 300) {
             this.cooldown1 = false
             this.scene.ui.attackIcon.graphics.opacity = 1
         }
