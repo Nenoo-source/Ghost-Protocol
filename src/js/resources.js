@@ -43,6 +43,7 @@ const Resources = {
     WarpUI: new ImageSource('images/warp.png'),
     superJumpUI: new ImageSource('images/superJump.png'),
     AttackUI: new ImageSource('images/attack_ui.png'),
+    IncognitoUI: new ImageSource('images/incognito_ui.png'),
     GameOverMusic: new Sound('sounds/GameOverMusic.mp3'),
     ButtonPress: new Sound('sounds/ButtonPress.mp3')
 }
