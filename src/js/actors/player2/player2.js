@@ -25,7 +25,13 @@ export class Player2 extends Player {
         super.onInitialize(engine)
 
         this.scale = new Vector(0.12, 0.12)
-        this.graphics.use(Resources.player2.toSprite())
+        this.idleGraphic = Resources.player2.toSprite()
+        this.graphics.use(this.idleGraphic)
+
+        this.runGraphic = this.idleGraphic
+        this.jumpGraphic = this.idleGraphic
+
+        this.currentGraphic = "idle"
         this.pos = new Vector(this.x, this.y)
 
         setupSuperJump(this)
