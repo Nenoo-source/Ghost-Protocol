@@ -4,6 +4,7 @@ import { Player1 } from "../player1/player1"
 import { Player2 } from "../player2/player2"
 import { Player } from "../playerBase.js"
 
+
 export class Rain extends Actor {
 
     constructor() {
@@ -44,14 +45,18 @@ export class RainDrop extends Actor {
     constructor(x, y) {
         super({
             pos: new Vector(x, y),
-            width: 20,
-            height: 40,
-            color: Color.Blue,
+            width: Resources.cookie.width / 2.5,
+            height: Resources.cookie.height,
             collisionType: CollisionType.Passive
         });
 
         this.fallSpeed = 600;
         // this.damage = 10;
+    }
+
+    onInitialize() {
+        this.graphics.use(Resources.RainDrop.toSprite())
+        this.scale = new Vector(0.08, 0.08)
     }
 
     onPreUpdate(engine, delta) {
@@ -64,12 +69,11 @@ export class RainDrop extends Actor {
     }
 
 
-    onCollisionStart(other, event) {
+    onCollisionStart(event, other) {
         //    const other = ev.other;
 
         if (other.owner instanceof Player1) {
             this.kill()
-            other.owner.kill()
             Resources.Damagesound.play()
             this.scene.pb.safety -= 10
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
@@ -78,11 +82,10 @@ export class RainDrop extends Actor {
         }
         if (other.owner instanceof Player2) {
             this.kill()
-            other.owner.kill()
             Resources.Damagesound.play()
             this.scene.pb.safety -= 10
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
-            this.scene.p2.pos = new Vector(100, 540)
+            this.scene.p2.pos = new Vector(200, 540)
             console.log("hit")
         }
     }
