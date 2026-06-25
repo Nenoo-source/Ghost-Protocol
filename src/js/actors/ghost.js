@@ -66,7 +66,13 @@ export class Ghost extends Actor {
         }
 
         if (this.health < this.healthPre) {
-            this.actions.blink(100, 100, 2); 
+
+            this.graphics.opacity = 0.4;
+
+            this.actions.delay(200).callMethod(() => {
+                this.graphics.opacity = 1;
+            });
+
             this.healthPre = this.health;
         }
 
