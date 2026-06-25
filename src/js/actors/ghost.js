@@ -27,10 +27,10 @@ export class Ghost extends Actor {
         this.body.collisionType = CollisionType.Active;
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
 
-        this.actions.repeat((repeatCtx) => {
-            repeatCtx.moveBy(200, 0, 100);
-            repeatCtx.moveBy(-200, 0, 100);
-        });
+        this.startX = 800;
+        this.moveRange = 200;
+        this.moveSpeed = 100;
+        this.vel = new Vector(this.moveSpeed, 0);
     }
 
     onCollisionStart(event, other) {
@@ -57,8 +57,16 @@ export class Ghost extends Actor {
 
     onPreUpdate(engine, delta) {
 
+        if (this.pos.x >= this.startX + this.moveRange) {
+            this.vel = new Vector(-this.moveSpeed, 0);
+        }
+
+        if (this.pos.x <= this.startX - this.moveRange) {
+            this.vel = new Vector(this.moveSpeed, 0);
+        }
+
         if (this.health < this.healthPre) {
-            this.actions.blink(150, 150, 3);
+            this.actions.blink(100, 100, 2); 
             this.healthPre = this.health;
         }
 
