@@ -16,6 +16,7 @@ const Resources = {
     tvWalk: new ImageSource("images/tvwalk.png"),
     BossBackground: new ImageSource("images/bossbackground.png"),
     Ghost: new ImageSource("images/ghost.png"),
+    RainDrop: new ImageSource("images/raindrop.png"),
     Ezdiffmusic1: new Sound('sounds/Level1&simpledifficulty.mp3'),
     Middiffmusic1: new Sound('sounds/Mediumdifficulty1.mp3'),
     Highdiffmusic1: new Sound('sounds/Highdifficulty1.mp3'),
