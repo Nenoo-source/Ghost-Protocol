@@ -3,6 +3,7 @@ import { SpriteSheet, Animation } from "excalibur";
 import { Resources } from '../resources.js';
 import { Player1 } from "./player1/player1.js";
 import { Player2 } from "./player2/player2.js";
+import { ThreatScanner } from "./player1/1-ability1.js"
 
 export class Ghost extends Actor {
 
@@ -14,6 +15,9 @@ export class Ghost extends Actor {
     }
 
     onInitialize(engine) {
+        this.health = 10
+        this.healthPre = this.health
+
         this.graphics.use(Resources.Ghost.toSprite())
 
         this.scale = new Vector(0.5, 0.5);
@@ -24,8 +28,8 @@ export class Ghost extends Actor {
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
 
         this.actions.repeat((repeatCtx) => {
-            repeatCtx.moveBy(300, 0, 100);
-            repeatCtx.moveBy(-300, 0, 100);
+            repeatCtx.moveBy(200, 0, 100);
+            repeatCtx.moveBy(-200, 0, 100);
         });
     }
 
@@ -44,9 +48,20 @@ export class Ghost extends Actor {
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
             this.scene.p2.pos = new Vector(200, 540);
         }
+
+        if (other.owner instanceof ThreatScanner) {
+            this.health -= 1
+            other.owner.kill()
+        }
     }
 
-    onPreUpdate(engine) {
+    onPreUpdate(engine, delta) {
+
+        if (this.health < this.healthPre) {
+            this.actions.blink(150, 150, 3);
+            this.healthPre = this.health;
+        }
+
         if (this.vel.x > 0) {
             this.graphics.flipHorizontal = false;
         }
@@ -54,5 +69,10 @@ export class Ghost extends Actor {
         if (this.vel.x < 0) {
             this.graphics.flipHorizontal = true;
         }
+
+        if (this.health <= 0) {
+            this.kill()
+        }
+
     }
 }
