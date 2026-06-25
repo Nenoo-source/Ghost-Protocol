@@ -8,7 +8,7 @@ import { Cookie } from "../actors/enemyabilities/enemyabilityone.js"
 import { Player2 } from "../actors/player2/player2.js"
 import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
-import { UI } from "../ui.js"
+import { UI } from "../UI.js"
 
 export class LevelOne extends Scene {
     onInitialize(engine, x, y, scX, scY) {
@@ -102,6 +102,7 @@ export class LevelOne extends Scene {
     onPreUpdate(engine) {
         if (this.c.coinCollected === true && !this.wentToLevelTwo) {
             this.wentToLevelTwo = true
+            this.pb.safety += 10
 
             engine.goToScene("LevelTwo", {
                 sceneActivationData: {
