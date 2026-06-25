@@ -70,6 +70,7 @@ export class LevelTwo extends Scene {
 
         this.addPlatforms()
         this.addLasers()
+        this.pb.grounded = true
     }
 
     onActivate(context) {
