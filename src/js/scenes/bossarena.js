@@ -10,6 +10,8 @@ import { Platform } from "../actors/platform.js"
 import { Coin } from "../actors/coin.js"
 import { UI } from "../ui.js"
 import { Ghost } from "../actors/ghost.js"
+import { Rain } from "../actors/enemyabilities/rain.js"
+import { RainDrop } from "../actors/enemyabilities/rain.js"
 
 export class BossArena extends Scene {
     onInitialize(engine, x, y, scX, scY) {
@@ -55,6 +57,12 @@ export class BossArena extends Scene {
 
 
         this.addPlatforms()
+
+        const rain = new Rain();
+        this.add(rain);
+
+        rain.startRain();
+
 
         // linker border
         const leftBorder = new Actor({
