@@ -24,7 +24,9 @@ export class Door extends Actor {
 
     onCollisionStart(event, other) {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
-            this.wentInDoor = true
+            if (this.scene.c.coinCollected === true) {
+                this.wentInDoor = true
+            }
         }
     }
 }

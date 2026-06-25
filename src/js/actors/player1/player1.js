@@ -29,7 +29,7 @@ export class Player1 extends Player {
 
         this.side = 1
         this.cooldown1Count = 0
-        if (this.scene === "scene2"){
+        if (this.scene === "scene1"){
             this.cooldown1 = false
         } else {
             this.cooldown1 = true
