@@ -56,8 +56,6 @@ export class Player extends Actor {
     }
 
     onPostUpdate() {
-        this.checkOnGround()
-
         if (this.safety >= 100) {
             this.safety = 100
         }

@@ -45,7 +45,8 @@ const Resources = {
     AttackUI: new ImageSource('images/attack_ui.png'),
     IncognitoUI: new ImageSource('images/incognito_ui.png'),
     GameOverMusic: new Sound('sounds/GameOverMusic.mp3'),
-    ButtonPress: new Sound('sounds/ButtonPress.mp3')
+    ButtonPress: new Sound('sounds/ButtonPress.mp3'),
+    Door: new ImageSource('images/endDoor.png')
 }
 
 

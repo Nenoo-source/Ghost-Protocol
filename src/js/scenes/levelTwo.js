@@ -13,6 +13,7 @@ import { UI } from "../ui.js"
 import { Cable } from "../actors/enemytwo.js"
 import { Laser } from "../actors/laser.js"
 import { Button } from "../actors/button.js"
+import { Door } from '../actors/end.js'
 
 
 export class LevelTwo extends Scene {
@@ -38,6 +39,10 @@ export class LevelTwo extends Scene {
             this.scalex2 = 0.09,
             this.scaley3 = 0.09,)
         this.add(this.button)
+
+        // door
+        this.d = new Door(1200, 530)
+        this.add(this.d)
 
         //playerBase
         this.pb = new Player()
@@ -139,7 +144,7 @@ export class LevelTwo extends Scene {
     }
 
     onPreUpdate(engine) {
-        if (this.c.coinCollected === true && !this.wentToBossArena) {
+        if (this.c.coinCollected === true && !this.wentToBossArena && this.d.wentInDoor) {
             this.wentToBossArena = true
             this.pb.safety += 10
 
