@@ -54,7 +54,7 @@ export class LevelOne extends Scene {
         this.add(g)
 
         // coin
-        this.c = new Coin(100, 450)
+        this.c = new Coin(100, 60)
         this.add(this.c)
 
         // ui
