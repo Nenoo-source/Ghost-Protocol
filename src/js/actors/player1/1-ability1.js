@@ -3,6 +3,7 @@ import { Resources } from "../../resources"
 import { Tv } from "../enemyone"
 import { Cable } from "../enemytwo"
 import { Platform } from "../platform"
+import { Laser } from '../laser'
 
 export class ThreatScanner extends Actor {
     constructor(x, y, side) {
@@ -30,7 +31,7 @@ export class ThreatScanner extends Actor {
             other.owner.kill()
             this.kill()
         }
-        if (other.owner instanceof Platform) {
+        if (other.owner instanceof Platform || other.owner instanceof Laser) {
             this.kill()
         }
     }
