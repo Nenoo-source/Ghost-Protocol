@@ -81,6 +81,5 @@ export class Ghost extends Actor {
         if (this.health <= 0) {
             this.kill()
         }
-
     }
 }
