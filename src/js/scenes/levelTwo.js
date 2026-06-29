@@ -32,6 +32,7 @@ export class LevelTwo extends Scene {
         Resources.Middiffmusic1.play()
         this.wentToBossArena = false
         this.isActive = false
+        this.sceneName = "LevelTwo"
 
         this.button = new Button(
             this.posX = 1200,
@@ -109,6 +110,8 @@ export class LevelTwo extends Scene {
 
         this.pb.safety = safetyFromLevelOne
         this.ui.safetybar.scale = new Vector(this.pb.safety / 50, 1)
+        Resources.Middiffmusic1.loop = true;
+        Resources.Middiffmusic1.play()
     }
 
     addPlatforms() {
@@ -150,6 +153,16 @@ export class LevelTwo extends Scene {
     }
 
     onPreUpdate(engine) {
+        if (engine.input.keyboard.wasPressed(Keys.Space)) {
+            engine.goToScene("pause", {
+                sceneActivationData: {
+                    prevSceneName: this.sceneName
+                },
+                sourceOut: new FadeInOut({ duration: 400, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 400, direction: 'in' })
+            })
+        }
+
         if (this.c.coinCollected === true && !this.wentToBossArena && this.d.wentInDoor) {
             this.wentToBossArena = true
             this.pb.safety += 10

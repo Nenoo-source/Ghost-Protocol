@@ -27,6 +27,7 @@ export class LevelOne extends Scene {
         Resources.Ezdiffmusic1.loop = true;
         Resources.Ezdiffmusic1.play()
         this.wentToLevelTwo = false
+        this.sceneName = "game"
 
         // door
         this.d = new Door(1200, 530)
@@ -103,6 +104,16 @@ export class LevelOne extends Scene {
 
 
     onPreUpdate(engine) {
+        if (engine.input.keyboard.wasPressed(Keys.Space)) {
+            engine.goToScene("pause", {
+                sceneActivationData: {
+                    prevSceneName: this.sceneName
+                },
+                sourceOut: new FadeInOut({ duration: 400, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 400, direction: 'in' })
+            })
+        }
+
         if (this.c.coinCollected === true && !this.wentToLevelTwo && this.d.wentInDoor) {
             this.wentToLevelTwo = true
             this.pb.safety += 10

@@ -29,6 +29,7 @@ export class BossArena extends Scene {
         Resources.Highdiffmusic1.loop = true;
         Resources.Highdiffmusic1.play()
         this.wentToLevelTwo = false
+        this.sceneName = "BossArena"
 
         //playerBase
         this.pb = new Player()
@@ -54,7 +55,7 @@ export class BossArena extends Scene {
 
         //ghost boss
         this.gh = new Ghost()
-        
+
 
 
         this.addPlatforms()
@@ -91,6 +92,8 @@ export class BossArena extends Scene {
 
         this.pb.safety = safetyFromLevelTwo
         this.ui.safetybar.scale = new Vector(this.pb.safety / 50, 1)
+        Resources.Highdiffmusic1.loop = true;
+        Resources.Highdiffmusic1.play()
         this.add(this.gh)
     }
 
@@ -110,6 +113,16 @@ export class BossArena extends Scene {
 
 
     onPreUpdate(engine) {
+        if (engine.input.keyboard.wasPressed(Keys.Space)) {
+            engine.goToScene("pause", {
+                sceneActivationData: {
+                    prevSceneName: this.sceneName
+                },
+                sourceOut: new FadeInOut({ duration: 400, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 400, direction: 'in' })
+            })
+        }
+
         if (this.pb.safety <= 0) {
             this.pb.safety = 50
             engine.goToScene("GameOver", {

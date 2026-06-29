@@ -8,6 +8,7 @@ import { LevelTwo } from './scenes/levelTwo.js'
 import { GameOver } from './scenes/gameOver.js'
 import { BossArena } from './scenes/bossarena.js'
 import { Victory } from './scenes/victory.js'
+import { PauseScene } from './scenes/pause.js'
 
 export class Game extends Engine {
 
@@ -35,6 +36,7 @@ export class Game extends Engine {
         this.addScene("GameOver", new GameOver())
         this.addScene("BossArena", new BossArena())
         this.addScene("Victory", new Victory())
+        this.addScene("pause", new PauseScene())
 
         this.goToScene("start")
     }
