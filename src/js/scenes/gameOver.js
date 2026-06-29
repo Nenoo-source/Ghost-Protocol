@@ -26,6 +26,6 @@ export class GameOver extends Scene {
     }
 
     onDeactivate(engine) {
-        Resources.Menumusic.stop()
+        Resources.GameOverMusic.stop()
     }
 }
