@@ -116,6 +116,13 @@ export class BossArena extends Scene {
                 destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
             })
         }
+
+        if (!this.gh.scene) {
+            engine.goToScene("Victory", {
+                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
+                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
+            })
+        }
     }
 
     onDeactivate(engine) {

@@ -27,7 +27,7 @@ export class ThreatScanner extends Actor {
     }
 
     onCollisionStart(event, other) {
-        if (other.owner instanceof Tv || other.owner instanceof Cable) {
+        if (other.owner instanceof Tv) {
             other.owner.kill()
             this.kill()
         }
