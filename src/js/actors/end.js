@@ -26,6 +26,7 @@ export class Door extends Actor {
         if (other.owner instanceof Player1 || other.owner instanceof Player2) {
             if (this.scene.c.coinCollected === true) {
                 this.wentInDoor = true
+                Resources.Levelcomplete.play()
             }
         }
     }
