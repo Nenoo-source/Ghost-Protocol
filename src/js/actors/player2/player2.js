@@ -1,11 +1,9 @@
 import { Vector } from "excalibur"
 import { Resources } from "../../resources"
 import { Player } from "../playerBase.js"
-
 import { setupSuperJump, updateSuperJump } from "./2-ability1.js"
 import { setupWarp, updateWarp } from "./2-ability2.js"
 import { setupBlock, updateBlock } from "./2-ability3.js"
-import { setupUltimate, updateUltimate } from "./2-ability4.js"
 
 export class Player2 extends Player {
 
@@ -37,7 +35,6 @@ export class Player2 extends Player {
         setupSuperJump(this)
         setupWarp(this)
         setupBlock(this)
-        setupUltimate(this)
     }
 
     onPreUpdate(engine, delta) {
@@ -50,6 +47,5 @@ export class Player2 extends Player {
         updateSuperJump(this, engine, delta)
         updateWarp(this, engine, delta)
         updateBlock(this, engine, delta)
-        updateUltimate(this, engine, delta)
     }
 }
