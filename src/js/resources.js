@@ -5,7 +5,7 @@ import { Tutorial } from './scenes/tutorial'
 const Resources = {
     Background: new ImageSource('images/background.png'),
     start: new ImageSource('images/start.png'),
-    Tutorial: new ImageSource('image/tutorial.png'),
+    Tutorial: new ImageSource('images/tutorial.png'),
     player1: new ImageSource('images/attackPlayer.png'),
     tv: new ImageSource('images/tvenemy.png'),
     player2: new ImageSource('images/defensePlayer.png'),
