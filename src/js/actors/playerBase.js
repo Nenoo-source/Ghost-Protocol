@@ -88,20 +88,14 @@ export class Player extends Actor {
             this.safety = 100
         }
 
-        if (this.scene?.ui?.safetybar) {
-            this.scene.ui.safetybar.scale = new Vector(this.safety / 50, 1)
+        if (this.vel.y === 0) {
+            this.grounded = true
         }
     }
 
     onCollisionStart(self, other, side, contact) {
         if ((other.owner instanceof Ground || other.owner instanceof Platform) && side === Side.Bottom) {
             this.grounded = true
-        }
-    }
-
-    onCollisionEnd(self, other) {
-        if (other.owner instanceof Ground || other.owner instanceof Platform) {
-            this.grounded = false
         }
     }
 }

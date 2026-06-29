@@ -21,10 +21,7 @@ export class GameOver extends Scene {
 
     onPreUpdate(engine) {
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
-            engine.goToScene("start", {
-                sourceOut: new FadeInOut({ duration: 600, direction: 'out' }),
-                destinationIn: new FadeInOut({ duration: 600, direction: 'in' })
-            })
+            window.location.reload()
         }
     }
 

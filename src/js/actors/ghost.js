@@ -40,6 +40,7 @@ export class Ghost extends Actor {
             this.scene.pb.safety -= 10;
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
             this.scene.p1.pos = new Vector(100, 540);
+            this.scene.p1.grounded = false
         }
 
         if (other.owner instanceof Player2) {
@@ -47,6 +48,7 @@ export class Ghost extends Actor {
             this.scene.pb.safety -= 10;
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1);
             this.scene.p2.pos = new Vector(200, 540);
+            this.scene.p2.grounded = false
         }
 
         if (other.owner instanceof ThreatScanner) {
