@@ -17,7 +17,7 @@ export class Ghost extends Actor {
     onInitialize(engine) {
         this._shootTimer = 0;
 
-        this.health = 10;
+        this.health = (15 - (this.scene.pb.safety / 10))
         this.healthPre = this.health;
 
         this.graphics.use(Resources.Ghost.toSprite());
