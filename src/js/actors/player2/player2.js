@@ -1,4 +1,4 @@
-import { Vector } from "excalibur"
+import { Animation, Vector } from "excalibur"
 import { Resources } from "../../resources"
 import { Player } from "../playerBase.js"
 import { setupSuperJump, updateSuperJump } from "./2-ability1.js"
@@ -26,10 +26,45 @@ export class Player2 extends Player {
         this.idleGraphic = Resources.player2.toSprite()
         this.graphics.use(this.idleGraphic)
 
-        this.runGraphic = this.idleGraphic
-        this.jumpGraphic = this.idleGraphic
+        const runScale = new Vector(0.8, 0.8)
+        const run4 = Resources.Run4.toSprite()
+        const run5 = Resources.Run5.toSprite()
+        const run6 = Resources.Run6.toSprite()
+        run4.scale = runScale
+        run5.scale = runScale
+        run6.scale = runScale
 
-        this.currentGraphic = "idle"
+        this.runGraphic = new Animation({
+            frames: [
+                { graphic: run4, duration: 120 },
+                { graphic: run5, duration: 120 },
+                { graphic: run6, duration: 120 }
+            ]
+        })
+        this.runGraphic.loop = true
+
+        this.jumpGraphic = new Animation({
+            frames: [
+                { graphic: Resources.Jump5.toSprite(), duration: 120 },
+                { graphic: Resources.Jump6.toSprite(), duration: 120 }
+            ]
+        })
+        this.jumpGraphic.loop = true
+
+        const blockRunScale = new Vector(0.8, 0.8)
+        const blockRun1 = Resources.runningDevensiveState1.toSprite()
+        const blockRun2 = Resources.runningDevensiveState2.toSprite()
+        blockRun1.scale = blockRunScale
+        blockRun2.scale = blockRunScale
+
+        this.blockRunGraphic = new Animation({
+            frames: [
+                { graphic: blockRun1, duration: 120 },
+                { graphic: blockRun2, duration: 120 }
+            ]
+        })
+        this.blockRunGraphic.loop = true
+
         this.pos = new Vector(this.x, this.y)
 
         setupSuperJump(this)
@@ -42,6 +77,22 @@ export class Player2 extends Player {
 
         if (this.player !== "player2") {
             return
+        }
+
+        // Graphics
+        if (!this.grounded && this.jumpGraphic && this.currentGraphic !== "jump") {
+            this.graphics.use(this.jumpGraphic)
+            this.currentGraphic = "jump"
+        } else if (this.grounded && this.xspeed !== 0) {
+            if (this.runGraphic && this.currentGraphic !== "run") {
+                this.graphics.use(this.runGraphic)
+                this.currentGraphic = "run"
+            }
+        } else if (this.grounded) {
+            if (this.idleGraphic && this.currentGraphic !== "idle") {
+                this.graphics.use(this.idleGraphic)
+                this.currentGraphic = "idle"
+            }
         }
 
         updateSuperJump(this, engine, delta)

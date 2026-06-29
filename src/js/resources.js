@@ -61,7 +61,15 @@ const Resources = {
     Jump3: new ImageSource('images/jump3.png'),
     Jump4: new ImageSource('images/jump4.png'),
     Aim1: new ImageSource('images/aim1.png'),
-    Aim2: new ImageSource('images/aim2.png')
+    Aim2: new ImageSource('images/aim2.png'),
+    //player2 animaties
+    Run4: new ImageSource('images/devensivePlayerRunning.png'),
+    Run5: new ImageSource('images/defensePlayer.png'),
+    Run6: new ImageSource('images/devensivePlayerRunning.png'),
+    Jump5: new ImageSource('images/devensivePlayerSquat.png'),
+    Jump6: new ImageSource('images/devensivePlayerJump.png'),
+    runningDevensiveState1: new ImageSource('images/defensive_player_blocking_state.png'),
+    runningDevensiveState2: new ImageSource('images/defensivePlayerRunningBlocking.png'),
 }
 
 
