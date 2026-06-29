@@ -54,7 +54,7 @@ export class BossArena extends Scene {
 
         //ghost boss
         this.gh = new Ghost()
-        this.add(this.gh)
+        
 
 
         this.addPlatforms()
@@ -91,6 +91,7 @@ export class BossArena extends Scene {
 
         this.pb.safety = safetyFromLevelTwo
         this.ui.safetybar.scale = new Vector(this.pb.safety / 50, 1)
+        this.add(this.gh)
     }
 
 
