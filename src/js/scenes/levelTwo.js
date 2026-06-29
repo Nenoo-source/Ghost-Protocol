@@ -49,11 +49,11 @@ export class LevelTwo extends Scene {
         this.add(this.pb)
 
         //player 1
-        this.p1 = new Player1("player1", 100, 540, "scene2")
+        this.p1 = new Player1("player1", 100, 420, "scene2")
         this.add(this.p1)
 
         //player 2
-        this.p2 = new Player2("player2", 200, 540)
+        this.p2 = new Player2("player2", 200, 420)
         this.p2.other = this.p1
         this.add(this.p2)
 
