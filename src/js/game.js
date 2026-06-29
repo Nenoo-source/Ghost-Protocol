@@ -2,6 +2,7 @@ import '../css/style.css'
 import { Actor, Engine, Vector, DisplayMode, SolverStrategy, CollisionType, Color } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { StartScene } from './scenes/start.js'
+import { TutorialScene } from './scenes/tutorial.js'
 import { LevelOne } from './scenes/levelOne.js'
 import { LevelTwo } from './scenes/levelTwo.js'
 import { GameOver } from './scenes/gameOver.js'
@@ -27,6 +28,7 @@ export class Game extends Engine {
     startGame() {
         console.log("start de game!")
         this.addScene("start", new StartScene())
+        this.addScene("tutorial", new TutorialScene())
         this.addScene("game", new LevelOne())
         this.addScene("LevelTwo", new LevelTwo())
         this.addScene("GameOver", new GameOver())
