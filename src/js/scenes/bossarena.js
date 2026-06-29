@@ -12,6 +12,7 @@ import { UI } from "../ui.js"
 import { Ghost } from "../actors/ghost.js"
 import { Rain } from "../actors/enemyabilities/rain.js"
 import { RainDrop } from "../actors/enemyabilities/rain.js"
+import { Cursor } from "../actors/enemyabilities/enemyabilitytwo.js"
 
 export class BossArena extends Scene {
     onInitialize(engine, x, y, scX, scY) {

@@ -3,6 +3,7 @@ import { Resources } from '../../resources.js'
 import { Player1 } from "../player1/player1"
 import { Player2 } from "../player2/player2"
 import { Player } from "../playerBase.js"
+import { isCorrectBlock } from "../../actors/player2/2-ability3.js"
 
 
 export class Rain extends Actor {
@@ -70,7 +71,22 @@ export class RainDrop extends Actor {
 
 
     onCollisionStart(event, other) {
-        //    const other = ev.other;
+
+        if (other.owner instanceof Player2) {
+            if (isCorrectBlock(other.owner, 1)) {
+                this.vel.y = -1400
+                Resources.Shielddeflect.play()
+                return
+            }
+
+            this.kill()
+            Resources.Damagesound.play()
+            this.scene.pb.safety -= 10
+            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+            this.scene.p2.pos = new Vector(200, 540)
+            console.log("hit")
+            return
+        }
 
         if (other.owner instanceof Player1) {
             this.kill()
@@ -78,14 +94,6 @@ export class RainDrop extends Actor {
             this.scene.pb.safety -= 10
             this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
             this.scene.p1.pos = new Vector(100, 540)
-            console.log("hit")
-        }
-        if (other.owner instanceof Player2) {
-            this.kill()
-            Resources.Damagesound.play()
-            this.scene.pb.safety -= 10
-            this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
-            this.scene.p2.pos = new Vector(200, 540)
             console.log("hit")
         }
     }

@@ -4,6 +4,7 @@ import { Resources } from '../resources.js';
 import { Player1 } from "./player1/player1.js";
 import { Player2 } from "./player2/player2.js";
 import { ThreatScanner } from "./player1/1-ability1.js"
+import { Cursor } from "./enemyabilities/enemyabilitytwo.js"
 
 export class Ghost extends Actor {
 
@@ -15,6 +16,8 @@ export class Ghost extends Actor {
     }
 
     onInitialize(engine) {
+        this._shootTimer = 0
+
         this.health = 10
         this.healthPre = this.health
 
@@ -28,9 +31,7 @@ export class Ghost extends Actor {
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
 
         this.startX = 850;
-        this.moveRange = 150;
-        this.moveSpeed = 70;
-        this.vel = new Vector(this.moveSpeed, 0);
+        this.graphics.flipHorizontal = true
     }
 
     onCollisionStart(event, other) {
@@ -56,36 +57,29 @@ export class Ghost extends Actor {
     }
 
     onPreUpdate(engine, delta) {
+        this._shootTimer += delta
 
-        if (this.pos.x >= this.startX + this.moveRange) {
-            this.vel = new Vector(-this.moveSpeed, 0);
-        }
+        if (this._shootTimer >= 4000) {
+            const cursor = new Cursor(this.pos.x - 50, this.pos.y, -1)
+            engine.currentScene.add(cursor)
+            this._shootTimer = 0
 
-        if (this.pos.x <= this.startX - this.moveRange) {
-            this.vel = new Vector(this.moveSpeed, 0);
-        }
 
-        if (this.health < this.healthPre) {
 
-            this.graphics.opacity = 0.4;
+            if (this.health < this.healthPre) {
 
-            this.actions.delay(200).callMethod(() => {
-                this.graphics.opacity = 1;
-            });
+                this.graphics.opacity = 0.4;
 
-            this.healthPre = this.health;
-        }
+                this.actions.delay(200).callMethod(() => {
+                    this.graphics.opacity = 1;
+                });
 
-        if (this.vel.x > 0) {
-            this.graphics.flipHorizontal = false;
-        }
+                this.healthPre = this.health;
+            }
 
-        if (this.vel.x < 0) {
-            this.graphics.flipHorizontal = true;
-        }
-
-        if (this.health <= 0) {
-            this.kill()
+            if (this.health <= 0) {
+                this.kill()
+            }
         }
     }
 }
