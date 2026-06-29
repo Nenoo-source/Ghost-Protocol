@@ -51,7 +51,7 @@ function tryActivateSuperJump(player, delta) {
     }
 
     // zelfde patroon als de normale jump in playerBase.js: kracht * delta
-    player.vel = new Vector(player.vel.x, -400 * SUPER_JUMP_MULTIPLIER)
+    player.vel = new Vector(player.vel.x, -player.jumpStrength * SUPER_JUMP_MULTIPLIER)
     player.superJumpCooldownRemaining = SUPER_JUMP_COOLDOWN
     Resources.Superjumpsound.play()
     return true

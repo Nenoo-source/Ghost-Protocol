@@ -121,5 +121,19 @@ export class UI extends ScreenElement {
         } else {
             this.warpIcon.graphics.opacity = 1
         }
+
+        if (this.scene.p2.blockCooldown > 0) {
+            this.blockIcon.graphics.opacity = 0.4
+        } else {
+            this.blockIcon.graphics.opacity = 1
+        }
+
+        if (this.scene.p2.blocking) {
+            this.blockIcon.graphics.opacity = 3
+        } else if (this.scene.p2.blockCooldown > 0) {
+            this.blockIcon.graphics.opacity = 0.4
+        } else {
+            this.blockIcon.graphics.opacity = 1
+        }
     }
 }

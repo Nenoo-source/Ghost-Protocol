@@ -17,6 +17,7 @@ export class Player extends Actor {
         this.safety = 50
         this.movementSpeed = 300
         this.xspeed = 0
+        this.jumpStrength = 450
     }
 
     onPreUpdate(engine, delta) {
@@ -26,7 +27,7 @@ export class Player extends Actor {
         if (keyboard.wasPressed(Keys.W) && this.player === "player1") {
             if (this.grounded) {
                 this.grounded = false
-                this.vel = new Vector(this.vel.x, -400)
+                this.vel = new Vector(this.vel.x, -this.jumpStrength)
             }
         }
 
@@ -34,7 +35,7 @@ export class Player extends Actor {
         if (keyboard.wasPressed(Keys.I) && this.player === "player2") {
             if (this.grounded && !this.superJumpArmed) {
                 this.grounded = false
-                this.vel = new Vector(this.vel.x, -400)
+                this.vel = new Vector(this.vel.x, -this.jumpStrength)
             }
         }
 
@@ -90,6 +91,10 @@ export class Player extends Actor {
 
         if (this.vel.y === 0) {
             this.grounded = true
+        }
+
+        if (this.vel.y < 0) {
+            this.grounded = false
         }
     }
 
