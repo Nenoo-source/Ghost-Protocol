@@ -18,9 +18,7 @@ export function updateTransparent(player, engine, delta) {
 
     if (engine.input.keyboard.wasPressed(Keys.Digit2) || engine.input.keyboard.wasPressed(Keys.Num2)) {
             tryTransparent(player, delta)
-    
         }
-    
 }
 
 function tryTransparent(player, delta){

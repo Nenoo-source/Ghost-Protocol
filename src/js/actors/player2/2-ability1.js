@@ -9,7 +9,7 @@ import { Resources } from "../../resources.js"
 // kracht maar een kracht die met de frametijd meeschaalt. De super jump moet
 // dezelfde "* delta" opzet gebruiken, anders is hij (per ongeluk) veel zwakker
 // dan de normale jump in plaats van sterker.
-const SUPER_JUMP_MULTIPLIER = 250 * 1.5  // 1.5x sterker dan de normale jump (normaal = 350)
+const SUPER_JUMP_MULTIPLIER = 1.5  // 1.5x sterker dan de normale jump (normaal = 350)
 const SUPER_JUMP_COOLDOWN = 3000         // cooldown in ms
 
 export function setupSuperJump(player) {
@@ -51,7 +51,7 @@ function tryActivateSuperJump(player, delta) {
     }
 
     // zelfde patroon als de normale jump in playerBase.js: kracht * delta
-    player.body.applyLinearImpulse(new Vector(0, -SUPER_JUMP_MULTIPLIER * delta))
+    player.vel = new Vector(player.vel.x, -400 * SUPER_JUMP_MULTIPLIER)
     player.superJumpCooldownRemaining = SUPER_JUMP_COOLDOWN
     Resources.Superjumpsound.play()
     return true

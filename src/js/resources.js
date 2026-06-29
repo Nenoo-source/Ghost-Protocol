@@ -29,7 +29,7 @@ const Resources = {
     Shielddeflect: new Sound('sounds/Shielddeflect.mp3'),
     Teleport: new Sound('sounds/Teleport.mp3'),
     Ultshield: new Sound('sounds/Ultshield.mp3'),
-    Levelcomplete: new Sound('sounds/Levelcomplete.mp3'),
+    Levelcomplete: new Sound('sounds/LevelComplete.mp3'),
     Projectile: new ImageSource('images/projectile.png'),
     platform: new ImageSource('images/platform2.png'),
     Damagesound: new Sound('sounds/Damage.mp3'),
@@ -48,7 +48,17 @@ const Resources = {
     IncognitoUI: new ImageSource('images/incognito_ui.png'),
     GameOverMusic: new Sound('sounds/GameOverMusic.mp3'),
     ButtonPress: new Sound('sounds/ButtonPress.mp3'),
-    Door: new ImageSource('images/endDoor.png')
+    Door: new ImageSource('images/endDoor.png'),
+    //player1 animaties
+    Run1: new ImageSource('images/attackingplayerRun1.png'),
+    Run2: new ImageSource('images/attackingplayerRun2.png'),
+    Run3: new ImageSource('images/attackingplayerRun3.png'),
+    Jump1: new ImageSource('images/jump1.png'),
+    Jump2: new ImageSource('images/jump2.png'),
+    Jump3: new ImageSource('images/jump3.png'),
+    Jump4: new ImageSource('images/jump4.png'),
+    Aim1: new ImageSource('images/aim1.png'),
+    Aim2: new ImageSource('images/aim2.png')
 }
 
 

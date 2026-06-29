@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom, Side } from "excalibur"
+import { Actor, CollisionType, DegreeOfFreedom, Keys, Side, Vector } from "excalibur"
 import { Ground } from './ground.js'
 import { Platform } from "./platform.js"
 
@@ -9,75 +9,93 @@ export class Player extends Actor {
     }
 
     onInitialize(engine) {
-        //player zwaartekracht
         this.body.useGravity = true
         this.body.collisionType = CollisionType.Active
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation)
 
+        this.grounded = false
         this.safety = 50
         this.movementSpeed = 300
+        this.xspeed = 0
     }
 
     onPreUpdate(engine, delta) {
-        if (this.vel.y === 0) {
-            this.grounded = true
-        } else {
-            this.grounded = false
-        }
+        const keyboard = engine.input.keyboard
 
-        if (engine.input.keyboard.wasPressed(Keys.W) && this.player === "player1") {
+        // Jump player 1
+        if (keyboard.wasPressed(Keys.W) && this.player === "player1") {
             if (this.grounded) {
-                this.body.applyLinearImpulse(new Vector(0, -250 * delta))
+                this.grounded = false
+                this.vel = new Vector(this.vel.x, -400)
             }
         }
-        if (engine.input.keyboard.wasPressed(Keys.I) && this.player === "player2") {
-            if (this.grounded && !this.superJumpArmed) {  
-                this.body.applyLinearImpulse(new Vector(0, -250 * delta))
-            }
 
+        // Jump player 2
+        if (keyboard.wasPressed(Keys.I) && this.player === "player2") {
+            if (this.grounded && !this.superJumpArmed) {
+                this.grounded = false
+                this.vel = new Vector(this.vel.x, -400)
+            }
         }
 
         this.xspeed = 0
 
-        if (engine.input.keyboard.isHeld(Keys.A) && this.player === "player1") {
-            this.xspeed -= this.movementSpeed
-            this.graphics.flipHorizontal = true
-        }
-        if (engine.input.keyboard.isHeld(Keys.J) && this.player === "player2") {
+        // Move left player 1
+        if (keyboard.isHeld(Keys.A) && this.player === "player1") {
             this.xspeed -= this.movementSpeed
             this.graphics.flipHorizontal = true
         }
 
-        if (engine.input.keyboard.isHeld(Keys.D) && this.player === "player1") {
+        // Move left player 2
+        if (keyboard.isHeld(Keys.J) && this.player === "player2") {
+            this.xspeed -= this.movementSpeed
+            this.graphics.flipHorizontal = true
+        }
+
+        // Move right player 1
+        if (keyboard.isHeld(Keys.D) && this.player === "player1") {
             this.xspeed += this.movementSpeed
             this.graphics.flipHorizontal = false
         }
-        if (engine.input.keyboard.isHeld(Keys.L) && this.player === "player2") {
+
+        // Move right player 2
+        if (keyboard.isHeld(Keys.L) && this.player === "player2") {
             this.xspeed += this.movementSpeed
             this.graphics.flipHorizontal = false
         }
 
         this.vel = new Vector(this.xspeed, this.vel.y)
 
+        // Graphics
+        if (!this.grounded && this.jumpGraphic && this.currentGraphic !== "jump") {
+            this.graphics.use(this.jumpGraphic)
+            this.currentGraphic = "jump"
+        } else if (this.grounded && this.xspeed !== 0) {
+            if (this.runGraphic && this.currentGraphic !== "run") {
+                this.graphics.use(this.runGraphic)
+                this.currentGraphic = "run"
+            }
+        } else if (this.grounded) {
+            if (this.idleGraphic && this.currentGraphic !== "idle") {
+                this.graphics.use(this.idleGraphic)
+                this.currentGraphic = "idle"
+            }
+        }
     }
 
     onPostUpdate() {
         if (this.safety >= 100) {
             this.safety = 100
         }
-        this.scene.ui.safetybar.scale = new Vector(this.scene.pb.safety / 50, 1)
+
+        if (this.vel.y === 0) {
+            this.grounded = true
+        }
     }
 
-    // onCollisionStart(self, other, side, contact) {
-    //     if ((other.owner instanceof Ground || other.owner instanceof Platform) && side === Side.Bottom) {
-    //         this.grounded = true
-    //     }
-    // }
-
-
-    onCollisionEnd(self, other) {
-        if (other.owner instanceof Ground || other.owner instanceof Platform) {
-            this.grounded = false
+    onCollisionStart(self, other, side, contact) {
+        if ((other.owner instanceof Ground || other.owner instanceof Platform) && side === Side.Bottom) {
+            this.grounded = true
         }
     }
 }

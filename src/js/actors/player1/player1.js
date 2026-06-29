@@ -1,4 +1,4 @@
-import { Actor, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
+import { Actor, Animation, Color, FadeInOut, Font, FontUnit, Keys, Label, Scene, Vector, DisplayMode, CollisionType, DegreeOfFreedom } from "excalibur"
 import { Resources } from "../../resources"
 import { Ground } from '../ground.js'
 import { Player } from '../playerBase.js'
@@ -24,7 +24,29 @@ export class Player1 extends Player {
         super.onInitialize(engine)
 
         this.scale = new Vector(0.1, 0.1)
-        this.graphics.use(Resources.player1.toSprite())
+        this.idleGraphic = Resources.player1.toSprite()
+        this.graphics.use(this.idleGraphic)
+
+        this.runGraphic = new Animation({
+            frames: [
+                { graphic: Resources.Run1.toSprite(), duration: 120 },
+                { graphic: Resources.Run2.toSprite(), duration: 120 },
+                { graphic: Resources.Run3.toSprite(), duration: 120 }
+            ]
+        })
+        this.runGraphic.loop = true
+
+        this.jumpGraphic = new Animation({
+            frames: [
+                { graphic: Resources.Jump1.toSprite(), duration: 120 },
+                { graphic: Resources.Jump2.toSprite(), duration: 120 },
+                { graphic: Resources.Jump3.toSprite(), duration: 120 },
+                { graphic: Resources.Jump4.toSprite(), duration: 120 }
+            ]
+        })
+        this.jumpGraphic.loop = true
+
+        
         this.pos = new Vector(this.x, this.y)
 
         this.side = 1
