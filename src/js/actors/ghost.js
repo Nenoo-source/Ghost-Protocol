@@ -10,8 +10,8 @@ export class Ghost extends Actor {
 
     constructor() {
         super({
-            width: 1050,
-            height: 700
+            width: Resources.width,
+            height: Resources.height
         });
     }
 
@@ -23,15 +23,18 @@ export class Ghost extends Actor {
 
         this.graphics.use(Resources.Ghost.toSprite())
 
-        this.scale = new Vector(0.5, 0.5);
-        this.pos = new Vector(800, 450);
+        this.scale = new Vector(0.8, 0.8);
+        this.pos = new Vector(900, 450);
 
         this.body.useGravity = false;
         this.body.collisionType = CollisionType.Active;
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
 
-        this.startX = 850;
         this.graphics.flipHorizontal = true
+
+        this.collider.useCircleCollider(180);
+
+        this.hoverTimer = 0;
     }
 
     onCollisionStart(event, other) {
@@ -83,5 +86,13 @@ export class Ghost extends Actor {
                 this.kill()
             }
         }
+
+        this.hoverTimer += delta * 0.002; // snelheid van de hover
+
+        const amplitude = 20; // hoeveel pixels hij op en neer gaat
+        const offsetY = Math.sin(this.hoverTimer) * amplitude;
+
+        this.pos.y += Math.sin(this.hoverTimer) * 0.5; // 450 is jouw originele Y-positie
+
     }
 }

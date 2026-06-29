@@ -22,7 +22,7 @@ export class Cursor extends Actor {
 
     onInitialize(engine) {
         this.graphics.use(Resources.Cursor.toSprite())
-        this.scale = new Vector(0.08, 0.08)
+        this.scale = new Vector(0.05, 0.05)
 
         // Altijd targeten naar Player1
         const p1 = engine.currentScene.p1
