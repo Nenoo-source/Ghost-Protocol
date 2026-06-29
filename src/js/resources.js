@@ -1,5 +1,5 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
-import { Tutorial } from './scenes/tutorial'
+
 
 // voeg hier jouw eigen resources toe
 const Resources = {

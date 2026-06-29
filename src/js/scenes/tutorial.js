@@ -12,7 +12,7 @@ export class TutorialScene extends Scene {
         })
         tutorial.graphics.use(Resources.Tutorial.toSprite())
         this.add(tutorial)
-        .scale = new Vector(0.85, 0.8)
+        tutorial.scale = new Vector(0.9, 0.7)
 
     }
 
