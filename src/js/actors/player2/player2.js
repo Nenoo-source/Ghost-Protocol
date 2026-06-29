@@ -35,7 +35,6 @@ export class Player2 extends Player {
         setupSuperJump(this)
         setupWarp(this)
         setupBlock(this)
-        setupUltimate(this)
     }
 
     onPreUpdate(engine, delta) {
@@ -48,6 +47,5 @@ export class Player2 extends Player {
         updateSuperJump(this, engine, delta)
         updateWarp(this, engine, delta)
         updateBlock(this, engine, delta)
-        updateUltimate(this, engine, delta)
     }
 }
