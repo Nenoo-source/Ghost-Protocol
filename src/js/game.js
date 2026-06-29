@@ -35,7 +35,7 @@ export class Game extends Engine {
 
 
 
-        this.goToScene("start")
+        this.goToScene("Start")
     }
 }
 
