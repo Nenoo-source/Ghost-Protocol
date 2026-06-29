@@ -116,7 +116,8 @@ export class BossArena extends Scene {
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
             engine.goToScene("pause", {
                 sceneActivationData: {
-                    prevSceneName: this.sceneName
+                    prevSceneName: this.sceneName,
+                    prevSceneData: { safety: this.pb?.safety }
                 },
                 sourceOut: new FadeInOut({ duration: 400, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 400, direction: 'in' })

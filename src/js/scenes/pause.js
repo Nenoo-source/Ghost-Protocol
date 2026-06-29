@@ -27,7 +27,6 @@ export class PauseScene extends Scene {
             text:
                 "GAME PAUZE\n\n" +
                 "Space = hervatten\n" +
-                "R = opnieuw beginnen\n" +
                 "Esc = terug naar start",
             font: new Font({
                 family: "Arial",
@@ -44,24 +43,23 @@ export class PauseScene extends Scene {
 
     onActivate(context) {
         this.prevSceneName = context.data?.prevSceneName || context.previousScene?.sceneName || "game"
+        // store any activation data so we can pass it back when resuming
+        this.prevSceneData = context.data?.prevSceneData || context.data?.prevData || context.previousSceneData
     }
 
     onPreUpdate(engine) {
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
             engine.goToScene(this.prevSceneName, {
+                sceneActivationData: this.prevSceneData,
                 sourceOut: new FadeInOut({ duration: 400, direction: 'out' }),
                 destinationIn: new FadeInOut({ duration: 400, direction: 'in' }),
             })
-             console.log(`going to scene ${this.prevSceneName}`)
+            console.log(`going to scene ${this.prevSceneName}`)
         }
-        if (engine.input.keyboard.wasPressed(Keys.R)) {
-            window.location.reload()
-        }
+
         if (engine.input.keyboard.wasPressed(Keys.Escape)) {
-            engine.goToScene("start", {
-                sourceOut: new FadeInOut({ duration: 400, direction: 'out' }),
-                destinationIn: new FadeInOut({ duration: 400, direction: 'in' }),
-            })
+           window.location.reload()
+            
         }
     }
 }
