@@ -36,7 +36,7 @@ export class Game extends Engine {
         this.addScene("BossArena", new BossArena())
         this.addScene("Victory", new Victory())
 
-        this.goToScene("BossArena")
+        this.goToScene("start")
     }
 }
 
