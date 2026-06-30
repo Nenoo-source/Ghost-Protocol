@@ -93,7 +93,7 @@ export class Player extends Actor {
             this.grounded = true
         }
 
-        if (this.vel.y < 0) {
+        if (this.vel.y !== 0) {
             this.grounded = false
         }
     }
