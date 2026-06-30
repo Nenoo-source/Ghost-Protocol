@@ -27,7 +27,7 @@ export class PauseScene extends Scene {
             text:
                 "GAME PAUZE\n\n" +
                 "Space = hervatten\n" +
-                "Esc = terug naar start",
+                "R = terug naar start",
             font: new Font({
                 family: "Arial",
                 size: 28,
@@ -57,7 +57,7 @@ export class PauseScene extends Scene {
             console.log(`going to scene ${this.prevSceneName}`)
         }
 
-        if (engine.input.keyboard.wasPressed(Keys.Escape)) {
+        if (engine.input.keyboard.wasPressed(Keys.R)) {
            window.location.reload()
             
         }
